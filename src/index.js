@@ -1,10 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {lazy, Suspense} from "react";
+import {render} from "react-dom";
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Container, Row} from 'react-bootstrap';
+import Loader from './components/design/loader';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Pokedex = lazy(() => import('./components/pokedex/Pokedex'));
+
+const App = () => {
+	return (
+		<Container>
+			<Row>
+				<Suspense fallback={<Loader/>}>
+					<Pokedex/>
+				</Suspense>
+			</Row></Container>
+	);
+};
+
+render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

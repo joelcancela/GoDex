@@ -5,9 +5,10 @@ const PokemonContainer = ({pokemons}) => {
 
 	const POKEMON_GO_TOTAL = 493;
 	const POKEMON_ID_BLACKLIST = [];
+	const POKEMON_ID_WHITELIST = [808, 809];
 
 	return pokemons.map((pokemon, index) => {
-			if (pokemon.id <= POKEMON_GO_TOTAL && !POKEMON_ID_BLACKLIST.includes(parseInt(pokemon.id))) {
+			if ((pokemon.id <= POKEMON_GO_TOTAL && !POKEMON_ID_BLACKLIST.includes(parseInt(pokemon.id))) || POKEMON_ID_WHITELIST.includes(parseInt(pokemon.id))) {
 				return (<PokedexItem
 					key={pokemon.id}
 					pokemon={pokemon}

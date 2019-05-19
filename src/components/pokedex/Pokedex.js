@@ -23,7 +23,7 @@ const fetchDebug = (...args) => {
 const fetchApi = async () => {
 	const response = await fetchDebug(`/api/pokemons.json`);
 	const result = await response.json();
-	return result.results;
+	return result;
 };
 
 class Pokedex extends Component {

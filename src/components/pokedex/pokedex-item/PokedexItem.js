@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './PokedexItem.css';
 import placeholder from './placeholder/unknown.png';
+import { VisibilityFilters } from '../../redux/actions/visibilityFilters'
 
-export default class PokedexItem extends Component {
-	constructor() {
-		super();
-		this.state = { loaded: false };
+let PokedexItem = ({ pokemon, caught, unavailable, filter = VisibilityFilters.SHOW_ALL }) => {
+	const [loaded, setLoaded] = useState(
+		false
+	);
+
+	const getPokemonSpritePath = () => {
+		return 'https://assets.thesilphroad.com/img/pokemon/icons/96x96/' + pokemon.id + '.png';
 	}
 
-	getPokemonSpritePath() {
-		return 'https://assets.thesilphroad.com/img/pokemon/icons/96x96/' + this.props.pokemon.id + '.png';
-	}
 
-
-	getStyle() {
-		const style = this.gradientType();
-		if (this.props.unavailable) {
+	const getStyle = () => {
+		if ((caught && (filter === VisibilityFilters.HIDE_OBTAINED || filter === VisibilityFilters.HIDE_BOTH)) || (unavailable && (filter === VisibilityFilters.HIDE_LOCKED || filter === VisibilityFilters.HIDE_BOTH))) {
+			return {
+				'display': 'none'
+			}
+		}
+		const style = gradientType();
+		if (unavailable) {
 			return {
 				'backgroundImage': 'url(./img/cross.png),' + style.background,
 				'opacity': 0.5,
 				'filter': 'grayscale(1)'
 			};
-		} else if (!this.props.caught) {
+		} else if (!caught) {
 			return {
 				...style,
 				'opacity': 0.5
@@ -32,8 +38,8 @@ export default class PokedexItem extends Component {
 		}
 	}
 
-	gradientType() {
-		switch (this.props.pokemon.type) {
+	const gradientType = () => {
+		switch (pokemon.type) {
 			case 'normal':
 				return {
 					background: 'radial-gradient(#fff2c0, #deb19c)',
@@ -111,25 +117,33 @@ export default class PokedexItem extends Component {
 		}
 	}
 
-	render() {
-		return (
-			<div className="pokedexItem" style={this.getStyle()}>
-				<img className="pokemonImage"
-					src={this.state.loaded ? this.getPokemonSpritePath() : placeholder}
-					alt=""
-					onLoad={() => this.setState({ loaded: true })}
-					onError={(e) => e.target.src = placeholder} />
-				<span
-					className="pokemonNumber">
-					#{parseInt(this.props.pokemon.id).toString().padStart(3, '0')}
-				</span>
-			</div>
-		);
-	}
+	return (
+		<div className="pokedexItem" style={getStyle()}>
+			<img className="pokemonImage"
+				src={loaded ? getPokemonSpritePath() : placeholder}
+				alt=""
+				onLoad={() => setLoaded(true)}
+				onError={(e) => e.target.src = placeholder} />
+			<span
+				className="pokemonNumber">
+				#{parseInt(pokemon.id).toString().padStart(3, '0')}
+			</span>
+		</div>
+	);
 }
+
+const mapStateToProps = (state) => ({
+	filter: state,
+})
+
+PokedexItem = connect(mapStateToProps, null)(PokedexItem)
+
+export default PokedexItem;
+
 
 PokedexItem.propTypes = {
 	pokemon: PropTypes.object,
 	caught: PropTypes.bool,
-	unavailable: PropTypes.bool
+	unavailable: PropTypes.bool,
+	filter: PropTypes.string
 };

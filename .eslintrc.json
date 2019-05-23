@@ -27,7 +27,11 @@
         "no-tabs": "off",
         "object-curly-spacing": "off",
         "max-len": "off",
-        "comma-dangle": "off"
+        "semi": "off",
+        "comma-dangle": "off",
+        "block-spacing": "off",
+        "brace-style": "off",
+        "curly": "off"
     },
     "settings": {
         "react": {

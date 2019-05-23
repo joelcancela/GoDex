@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PokemonContainer from "./pokemon-container/pokemonContainer";
+import React, {Component} from 'react';
+import PokemonContainer from './pokemon-container/pokemonContainer';
 
 const fetchApi = async () => {
 	const response = await fetch(`/pokemons.json`);
@@ -10,17 +10,16 @@ const fetchApi = async () => {
 class Pokedex extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { pokemons: [] };
+		this.state = {pokemons: []};
 	}
 
-	async componentWillMount() {
-		await fetchApi().then(pokemons => this.setState({ pokemons: pokemons }));
+	async componentDidMount() {
+		await fetchApi().then((pokemons) => this.setState({pokemons: pokemons}));
 	}
 
 	render() {
 		return (<PokemonContainer pokemons={this.state.pokemons} />);
 	}
-
 }
 
-export default Pokedex
+export default Pokedex;

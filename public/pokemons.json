@@ -4033,5 +4033,15 @@
     "id": 807,
     "name": "zeraora",
     "type": "electric"
+  },
+  {
+    "id": 808,
+    "name": "meltan",
+    "type": "steel"
+  },
+  {
+    "id": 809,
+    "name": "melmetal",
+    "type": "steel"
   }
 ]

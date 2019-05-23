@@ -23,11 +23,11 @@
     ],
     "rules": {
         "require-jsdoc": 0,
-        "indent": [
-            2,
-            "tab"
-        ],
-        "no-tabs": "off"
+        "indent": "off",
+        "no-tabs": "off",
+        "object-curly-spacing": "off",
+        "max-len": "off",
+        "comma-dangle": "off"
     },
     "settings": {
         "react": {

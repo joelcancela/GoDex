@@ -11,7 +11,8 @@ const App = () => {
 				<Suspense fallback={<Loader />}>
 					<Pokedex />
 				</Suspense>
-			</Row></Container>
+			</Row>
+		</Container>
 	);
 };
 

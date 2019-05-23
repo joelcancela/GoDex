@@ -1,7 +1,7 @@
 import PokedexItem from '../pokedex-item/PokedexItem';
 import React from 'react';
 
-const PokemonContainer = ({pokemons}) => {
+const PokemonContainer = ({ pokemons, pokemonsCaught, pokemonsUnavailable }) => {
 	const POKEMON_GO_TOTAL = 493;
 	const POKEMON_ID_BLACKLIST = [];
 	const POKEMON_ID_WHITELIST = [808, 809];
@@ -13,6 +13,8 @@ const PokemonContainer = ({pokemons}) => {
 			return (<PokedexItem
 				key={pokemon.id}
 				pokemon={pokemon}
+				caught={pokemonsCaught.includes(parseInt(pokemon.id))}
+				unavailable={pokemonsUnavailable.includes(parseInt(pokemon.id))}
 			/>);
 		} else {
 			return undefined;

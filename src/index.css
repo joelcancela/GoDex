@@ -5,5 +5,8 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #e61515
+    background-image: url('https://pokemongolive.com/img/global/bg.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed
 }

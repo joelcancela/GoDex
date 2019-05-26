@@ -7,18 +7,6 @@ const fetchPokemonsGo = async () => {
 	return result;
 };
 
-const fetchPokemonsCaught = async () => {
-	const response = await fetch(`/pokedex/pokemons_caught.json`);
-	const result = await response.json();
-	return result;
-};
-
-const fetchPokemonsUnavailable = async () => {
-	const response = await fetch(`/pokedex/pokemons_unavailable.json`);
-	const result = await response.json();
-	return result;
-};
-
 class Pokedex extends Component {
 	constructor(props) {
 		super(props);
@@ -26,9 +14,7 @@ class Pokedex extends Component {
 	}
 
 	async componentDidMount() {
-		await fetchPokemonsGo().then((pokemons) => this.setState((previous) => ({ ...previous, pokemons: pokemons })));
-		await fetchPokemonsCaught().then((pokemons) => this.setState((previous) => ({ ...previous, pokemonsCaught: pokemons })));
-		await fetchPokemonsUnavailable().then((pokemons) => this.setState((previous) => ({ ...previous, pokemonsUnavailable: pokemons })));
+		await fetchPokemonsGo().then((pokemons) => this.setState((previous) => ({ ...previous, pokemons: pokemons.pokemons, pokemonsCaught: pokemons.caught, pokemonsUnavailable: pokemons.unavailable })));
 	}
 
 	render() {

@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { hideBoth, hideLocked, hideObtained, showAll } from '../../redux/actions/visibilityFilters';
+import styled from 'styled-components';
 
-let Filter = ({ hideBothProp, hideLockedProp, hideObtainedProp, showAllProp }) => {
+const Label = styled.label`
+  margin-right: 5px;
+`;
+
+let FilterSection = ({ hideBothProp, hideLockedProp, hideObtainedProp, showAllProp }) => {
 	const [obtained, setObtained] = useState(
 		true
 	);
@@ -35,25 +40,26 @@ let Filter = ({ hideBothProp, hideLockedProp, hideObtainedProp, showAllProp }) =
 		}
 	});
 
-	return (<>
-		<label>
-			<input type="checkbox"
-				id="obtained"
-				checked={obtained}
-				onChange={toggleChange}
-			/>
+	return (<div>
+		<h1>Filters</h1>
+		<Label htmlFor="obtained">
 			Hide obtained Pokémons
-		</label>
+			</Label>
+		<input type="checkbox"
+			id="obtained"
+			checked={obtained}
+			onChange={toggleChange}
+		/>
 		<br />
-		<label>
-			<input type="checkbox"
-				id="unavailable"
-				checked={unavailable}
-				onChange={toggleChange}
-			/>
+		<Label htmlFor="unavailable">
 			Hide unavailable Pokémons
-		</label>
-	</>);
+			</Label>
+		<input type="checkbox"
+			id="unavailable"
+			checked={unavailable}
+			onChange={toggleChange}
+		/>
+	</div>);
 }
 
 const mapDispatchToProps = (dispatch) => ({
@@ -63,11 +69,11 @@ const mapDispatchToProps = (dispatch) => ({
 	showAllProp: () => { dispatch(showAll()) }
 })
 
-Filter = connect(null, mapDispatchToProps)(Filter)
+FilterSection = connect(null, mapDispatchToProps)(FilterSection)
 
-export default Filter;
+export default FilterSection;
 
-Filter.propTypes = {
+FilterSection.propTypes = {
 	hideBothProp: PropTypes.func,
 	hideLockedProp: PropTypes.func,
 	hideObtainedProp: PropTypes.func,

@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PokemonContainer from './pokemon-container/pokemonContainer';
+import PropTypes from 'prop-types';
+import { setStats } from '../redux/actions/stats';
+import { connect } from 'react-redux';
 
 const fetchPokemonsGo = async () => {
 	const response = await fetch(`/pokedex/pokemons.json`);
@@ -7,19 +10,42 @@ const fetchPokemonsGo = async () => {
 	return result;
 };
 
-class Pokedex extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { pokemons: [], pokemonsCaught: [], pokemonsUnavailable: [] };
-	}
+let Pokedex = ({ updateStats }) => {
 
-	async componentDidMount() {
-		await fetchPokemonsGo().then((pokemons) => this.setState((previous) => ({ ...previous, pokemons: pokemons.pokemons, pokemonsCaught: pokemons.caught, pokemonsUnavailable: pokemons.unavailable })));
-	}
+	const [pokemons, setPokemons] = useState([]);
+	const [pokemonsCaught, setPokemonsCaught] = useState([]);
+	const [pokemonsUnavailable, setPokemonsUnavailable] = useState([]);
 
-	render() {
-		return (<PokemonContainer pokemons={this.state.pokemons} pokemonsCaught={this.state.pokemonsCaught} pokemonsUnavailable={this.state.pokemonsUnavailable} />);
-	}
+	useEffect(() => {
+		fetchPokemonsGo()
+			.then((pokemons) => {
+				setPokemons(pokemons.pokemons);
+				setPokemonsCaught(pokemons.caught);
+				setPokemonsUnavailable(pokemons.unavailable);
+			})
+	}, []);
+
+	useEffect(() => {
+		updateStats(pokemonsCaught, pokemonsUnavailable);
+	});
+
+	return (<PokemonContainer pokemons={pokemons} pokemonsCaught={pokemonsCaught} pokemonsUnavailable={pokemonsUnavailable} />);
 }
 
+
+const mapDispatchToProps = (dispatch) => ({
+	updateStats: (pokemonsCaught, pokemonsUnavailable) => { dispatch(setStats({ caught: pokemonsCaught.length, unavailable: pokemonsUnavailable.length })) }
+})
+
+Pokedex = connect(null, mapDispatchToProps)(Pokedex)
+
+
 export default Pokedex;
+
+Pokedex.propTypes = {
+	pokemons: PropTypes.object,
+	pokemonsCaught: PropTypes.object,
+	pokemonsUnavailable: PropTypes.object,
+	updateStats: PropTypes.func
+};
+

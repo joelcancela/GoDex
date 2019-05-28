@@ -1,9 +1,8 @@
 import PokedexItem from '../pokedex-item/PokedexItem';
 import React from 'react';
+import { POKEMON_GO_TOTAL, POKEMON_ID_WHITELIST } from '../PokedexConstants';
 
 const PokemonContainer = ({ pokemons, pokemonsCaught, pokemonsUnavailable }) => {
-	const POKEMON_GO_TOTAL = 493;
-	const POKEMON_ID_WHITELIST = [808, 809];
 
 	return pokemons.map((pokemon) => {
 		if (POKEMON_ID_WHITELIST.includes(parseInt(pokemon.id)) ||

@@ -11,7 +11,9 @@ let PokedexItem = ({ pokemon, caught, unavailable, filter = VisibilityFilters.SH
 	);
 
 	const getPokemonSpritePath = () => {
-		return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png';
+		// return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png';
+		const URL = 'https://assets.thesilphroad.com/img/pokemon/icons/96x96/' + pokemon.id + '.png';
+		return URL;
 	}
 
 
@@ -123,7 +125,7 @@ let PokedexItem = ({ pokemon, caught, unavailable, filter = VisibilityFilters.SH
 				src={loaded ? getPokemonSpritePath() : placeholder}
 				alt=""
 				onLoad={() => setLoaded(true)}
-				onError={(e) => e.target.src = placeholder} />
+				onError={(e) => {e.target.onerror = null; e.target.src = placeholder}} />
 			<span
 				className="pokemonNumber">
 				#{parseInt(pokemon.id).toString().padStart(3, '0')}
@@ -133,7 +135,7 @@ let PokedexItem = ({ pokemon, caught, unavailable, filter = VisibilityFilters.SH
 }
 
 const mapStateToProps = (state) => ({
-	filter: state,
+	filter: state.filterReducer,
 })
 
 PokedexItem = connect(mapStateToProps, null)(PokedexItem)

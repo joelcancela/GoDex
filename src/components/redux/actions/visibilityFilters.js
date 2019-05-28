@@ -1,6 +1,4 @@
-export const ActionTypes = {
-	SET_FILTER: 'SET_VISIBILITY_FILTER'
-}
+import { ActionTypes } from './actions';
 
 export const hideBoth = () => ({
 	type: ActionTypes.SET_FILTER,

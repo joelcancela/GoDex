@@ -5,7 +5,7 @@ import { hideBoth, hideLocked, hideObtained, showAll } from '../../redux/actions
 import styled from 'styled-components';
 
 const Label = styled.label`
-  margin-right: 5px;
+	margin-right: 5px;
 `;
 
 let FilterSection = ({ hideBothProp, hideLockedProp, hideObtainedProp, showAllProp }) => {
@@ -41,24 +41,27 @@ let FilterSection = ({ hideBothProp, hideLockedProp, hideObtainedProp, showAllPr
 	});
 
 	return (<div>
-		<h1>Filters</h1>
-		<Label htmlFor="obtained">
-			Hide obtained Pokémons
+		<h2>Filters</h2>
+		<div>
+			<Label htmlFor="obtained">
+				Hide obtained
 			</Label>
-		<input type="checkbox"
-			id="obtained"
-			checked={obtained}
-			onChange={toggleChange}
-		/>
-		<br />
-		<Label htmlFor="unavailable">
-			Hide unavailable Pokémons
+			<input type="checkbox"
+				id="obtained"
+				checked={obtained}
+				onChange={toggleChange}
+			/>
+		</div>
+		<div>
+			<Label htmlFor="unavailable">
+				Hide unavailable
 			</Label>
-		<input type="checkbox"
-			id="unavailable"
-			checked={unavailable}
-			onChange={toggleChange}
-		/>
+			<input type="checkbox"
+				id="unavailable"
+				checked={unavailable}
+				onChange={toggleChange}
+			/>
+		</div>
 	</div>);
 }
 

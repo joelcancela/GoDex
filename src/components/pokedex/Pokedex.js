@@ -11,7 +11,6 @@ const fetchPokemonsGo = async () => {
 };
 
 let Pokedex = ({ updateStats }) => {
-
 	const [pokemons, setPokemons] = useState([]);
 	const [pokemonsCaught, setPokemonsCaught] = useState([]);
 	const [pokemonsUnavailable, setPokemonsUnavailable] = useState([]);

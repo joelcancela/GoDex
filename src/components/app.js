@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import { Container, Row, Col } from 'react-bootstrap';
 import rootReducer from './redux/reducers/reducers';
 import Loader from './design/loader';
+import Title from './design/title';
 import FilterSection from './pokedex/filter-section/filter-section';
 import StatsSection from './pokedex/stats-section/stats-section';
 
@@ -13,6 +14,11 @@ const store = createStore(rootReducer);
 const App = () => {
 	return (
 		<Container>
+			<Row>
+				<Col xs={{ span: 4, offset: 4 }} md={{ span: 4, offset: 4 }} lg={{ span: 4, offset: 4 }} className="text-center">
+					<Title />
+				</Col>
+			</Row>
 			<Provider store={store}>
 				<Row>
 					<Col xs lg md="6">

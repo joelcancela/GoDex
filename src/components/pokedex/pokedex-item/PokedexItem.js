@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import './PokedexItem.css';
 import placeholder from './placeholder/unknown.png';
-import { VisibilityFilters } from '../../redux/actions/visibilityFilters'
+import {VisibilityFilters} from '../../redux/actions/visibilityFilters'
 
-let PokedexItem = ({ pokemon, caught, unavailable, filter = VisibilityFilters.SHOW_ALL }) => {
+let PokedexItem = ({pokemon, caught, unavailable, filter = VisibilityFilters.SHOW_ALL}) => {
 	const [loaded, setLoaded] = useState(
 		false
 	);
@@ -14,7 +14,6 @@ let PokedexItem = ({ pokemon, caught, unavailable, filter = VisibilityFilters.SH
 		const URL = 'https://assets.thesilphroad.com/img/pokemon/icons/96x96/' + pokemon.id + '.png';
 		return URL;
 	}
-
 
 	const getStyle = () => {
 		if ((caught && (filter === VisibilityFilters.HIDE_OBTAINED || filter === VisibilityFilters.HIDE_BOTH)) || (unavailable && (filter === VisibilityFilters.HIDE_LOCKED || filter === VisibilityFilters.HIDE_BOTH))) {
@@ -121,14 +120,22 @@ let PokedexItem = ({ pokemon, caught, unavailable, filter = VisibilityFilters.SH
 	return (
 		<div className="pokedexItem" style={getStyle()}>
 			<img className="pokemonImage"
-				src={loaded ? getPokemonSpritePath() : placeholder}
-				alt=""
-				onLoad={() => setLoaded(true)}
-				onError={(e) => {e.target.onerror = null; e.target.src = placeholder}} />
+			     src={loaded ? getPokemonSpritePath() : placeholder}
+			     alt=""
+			     onLoad={() => setLoaded(true)}
+			     onError={(e) => {
+				     e.target.onerror = null;
+				     e.target.src = placeholder
+			     }}/>
+			<div className="pokemonDetails">
 			<span
 				className="pokemonNumber">
 				#{parseInt(pokemon.id).toString().padStart(3, '0')}
 			</span>
+				{pokemon.region ? <span className="pokemonRegion">
+				{pokemon.region}
+			</span> : null}
+			</div>
 		</div>
 	);
 }
@@ -140,7 +147,6 @@ const mapStateToProps = (state) => ({
 PokedexItem = connect(mapStateToProps, null)(PokedexItem)
 
 export default PokedexItem;
-
 
 PokedexItem.propTypes = {
 	pokemon: PropTypes.object,

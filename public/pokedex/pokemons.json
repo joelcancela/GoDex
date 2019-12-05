@@ -937,7 +937,8 @@
     {
       "id": 83,
       "name": "farfetchd",
-      "type": "normal"
+      "type": "normal",
+      "region": "Asia"
     },
     {
       "id": 84,
@@ -1097,7 +1098,8 @@
     {
       "id": 115,
       "name": "kangaskhan",
-      "type": "normal"
+      "type": "normal",
+      "region": "AU/NZ"
     },
     {
       "id": 116,
@@ -1132,7 +1134,8 @@
     {
       "id": 122,
       "name": "mr-mime",
-      "type": "psychic"
+      "type": "psychic",
+      "region": "EU"
     },
     {
       "id": 123,
@@ -1162,7 +1165,8 @@
     {
       "id": 128,
       "name": "tauros",
-      "type": "normal"
+      "type": "normal",
+      "region": "USA"
     },
     {
       "id": 129,
@@ -1592,7 +1596,8 @@
     {
       "id": 214,
       "name": "heracross",
-      "type": "bug"
+      "type": "bug",
+      "region": "South USA"
     },
     {
       "id": 215,
@@ -1632,7 +1637,8 @@
     {
       "id": 222,
       "name": "corsola",
-      "type": "water"
+      "type": "water",
+      "region": "Tropics"
     },
     {
       "id": 223,
@@ -2087,12 +2093,14 @@
     {
       "id": 313,
       "name": "volbeat",
-      "type": "bug"
+      "type": "bug",
+      "region": "EU/Asia/AU/NZ"
     },
     {
       "id": 314,
       "name": "illumise",
-      "type": "bug"
+      "type": "bug",
+      "region": "NA/SA/AF"
     },
     {
       "id": 315,
@@ -2142,7 +2150,8 @@
     {
       "id": 324,
       "name": "torkoal",
-      "type": "fire"
+      "type": "fire",
+      "region": "South Asia"
     },
     {
       "id": 325,
@@ -2197,22 +2206,26 @@
     {
       "id": 335,
       "name": "zangoose",
-      "type": "normal"
+      "type": "normal",
+      "region": "EU/Asia/AU"
     },
     {
       "id": 336,
       "name": "seviper",
-      "type": "poison"
+      "type": "poison",
+      "region": "NA/SA/AF"
     },
     {
       "id": 337,
       "name": "lunatone",
-      "type": "rock"
+      "type": "rock",
+      "region": "EU/Asia/AU"
     },
     {
       "id": 338,
       "name": "solrock",
-      "type": "rock"
+      "type": "rock",
+      "region": "NA/SA/AF"
     },
     {
       "id": 339,
@@ -2307,7 +2320,8 @@
     {
       "id": 357,
       "name": "tropius",
-      "type": "grass"
+      "type": "grass",
+      "region": "AF/Medit"
     },
     {
       "id": 358,
@@ -2367,7 +2381,8 @@
     {
       "id": 369,
       "name": "relicanth",
-      "type": "water"
+      "type": "water",
+      "region": "NZ"
     },
     {
       "id": 370,
@@ -2607,7 +2622,8 @@
     {
       "id": 417,
       "name": "pachirisu",
-      "type": "electric"
+      "type": "electric",
+      "region": "AL/CAN/RU"
     },
     {
       "id": 418,
@@ -2632,7 +2648,8 @@
     {
       "id": 422,
       "name": "shellos",
-      "type": "water"
+      "type": "water",
+      "region": "E/W Meridian"
     },
     {
       "id": 423,
@@ -2717,7 +2734,8 @@
     {
       "id": 439,
       "name": "mime-jr",
-      "type": "psychic"
+      "type": "psychic",
+      "region": "EU"
     },
     {
       "id": 440,
@@ -2727,7 +2745,8 @@
     {
       "id": 441,
       "name": "chatot",
-      "type": "normal"
+      "type": "normal",
+      "region": "South Hemi"
     },
     {
       "id": 442,
@@ -2797,7 +2816,8 @@
     {
       "id": 455,
       "name": "carnivine",
-      "type": "grass"
+      "type": "grass",
+      "region": "FL/SC/USA"
     },
     {
       "id": 456,
@@ -2922,17 +2942,20 @@
     {
       "id": 480,
       "name": "uxie",
-      "type": "psychic"
+      "type": "psychic",
+      "region": "SA"
     },
     {
       "id": 481,
       "name": "mesprit",
-      "type": "psychic"
+      "type": "psychic",
+      "region": "EU/ME/AF/IN"
     },
     {
       "id": 482,
       "name": "azelf",
-      "type": "psychic"
+      "type": "psychic",
+      "region": "Asia Pac"
     },
     {
       "id": 483,
@@ -3077,7 +3100,8 @@
     {
       "id": 511,
       "name": "pansage",
-      "type": "grass"
+      "type": "grass",
+      "region": "Asia Pac"
     },
     {
       "id": 512,
@@ -3087,7 +3111,8 @@
     {
       "id": 513,
       "name": "pansear",
-      "type": "fire"
+      "type": "fire",
+      "region": "EU/ME/AF/IN"
     },
     {
       "id": 514,
@@ -3097,7 +3122,8 @@
     {
       "id": 515,
       "name": "panpour",
-      "type": "water"
+      "type": "water",
+      "region": "NA/SA"
     },
     {
       "id": 516,
@@ -3677,12 +3703,14 @@
     {
       "id": 631,
       "name": "heatmor",
-      "type": "fire"
+      "type": "fire",
+      "region": "NA/SA/AF"
     },
     {
       "id": 632,
       "name": "durant",
-      "type": "bug"
+      "type": "bug",
+      "region": "EU/Asia/AU"
     },
     {
       "id": 633,

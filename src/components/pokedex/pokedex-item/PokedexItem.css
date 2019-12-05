@@ -13,15 +13,27 @@
     margin-right: auto;
 }
 
-.pokemonNumber {
+.pokemonDetails {
     font-size: 12px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    letter-spacing: 0.2em;
+    color: white;
+    text-shadow: 0 0 2px #000;
+    letter-spacing: 0.05em;
     background: #00000017;
-    text-align: left;
-    padding: 1px 0.5px 1px 3px;
-    text-shadow: 0 0 6px #0000004d;
-    line-height: 1.3em;
+    padding: 1px 1px 1px 3px;
+    line-height: 1em;
     height: 13px;
+    margin-top: 11px;
+}
 
+.pokemonNumber {
+    float: left;
+    text-align: left;
+    border-bottom-left-radius: 5px;
+}
+
+.pokemonRegion {
+    float: right;
+    text-align: right;
+    border-bottom-right-radius: 5px;
 }

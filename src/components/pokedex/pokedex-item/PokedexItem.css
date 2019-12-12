@@ -39,4 +39,5 @@
     overflow: hidden;
     max-width: 80px;
     text-overflow: ellipsis;
+    white-space: pre;
 }

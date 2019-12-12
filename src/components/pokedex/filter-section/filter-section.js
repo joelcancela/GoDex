@@ -1,42 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { hideBoth, hideLocked, hideObtained, showAll } from '../../redux/actions/visibilityFilters';
+import {connect} from 'react-redux';
+import {
+	showUnavailable,
+	showObtained,
+	showRegionals,
+	hideUnavailable,
+	hideObtained,
+	hideRegionals
+} from '../../redux/actions/visibilityFilters';
 import styled from 'styled-components';
 
 const Label = styled.label`
 	margin-right: 5px;
 `;
 
-let FilterSection = ({ hideBothProp, hideLockedProp, hideObtainedProp, showAllProp }) => {
+let FilterSection = ({hideUnavailableProp,
+	                     hideRegionalsProp,
+	                     hideObtainedProp,
+	                     showUnavailableProp,
+	                     showRegionalsProp,
+	                     showObtainedProp
+                     }) => {
 	const [obtained, setObtained] = useState(
 		true
 	);
 	const [unavailable, setUnavailable] = useState(
 		true
 	);
+	const [regionals, setRegionals] = useState(
+		true
+	);// True is hidden
 
 	const toggleChange = (event) => {
 		const id = event.target.id;
-		if (id === 'obtained') {
+		if (id === 'obtained')
 			setObtained(!obtained);
-		}
 		if (id === 'unavailable')
 			setUnavailable(!unavailable);
+		if (id === 'regionals')
+			setRegionals(!regionals);
 	}
 	useEffect(() => {
 		if (obtained) {
-			if (unavailable) {
-				hideBothProp();
-			} else {
-				hideObtainedProp();
-			}
+			hideObtainedProp();
 		} else {
-			if (unavailable) {
-				hideLockedProp();
-			} else {
-				showAllProp();
-			}
+			showObtainedProp();
+		}
+		if (regionals) {
+			hideRegionalsProp();
+		} else {
+			showRegionalsProp();
+		}
+		if (unavailable) {
+			hideUnavailableProp();
+		} else {
+			showUnavailableProp();
 		}
 	});
 
@@ -47,9 +66,9 @@ let FilterSection = ({ hideBothProp, hideLockedProp, hideObtainedProp, showAllPr
 				Hide obtained
 			</Label>
 			<input type="checkbox"
-				id="obtained"
-				checked={obtained}
-				onChange={toggleChange}
+			       id="obtained"
+			       checked={obtained}
+			       onChange={toggleChange}
 			/>
 		</div>
 		<div>
@@ -57,19 +76,43 @@ let FilterSection = ({ hideBothProp, hideLockedProp, hideObtainedProp, showAllPr
 				Hide unavailable
 			</Label>
 			<input type="checkbox"
-				id="unavailable"
-				checked={unavailable}
-				onChange={toggleChange}
+			       id="unavailable"
+			       checked={unavailable}
+			       onChange={toggleChange}
+			/>
+		</div>
+		<div>
+			<Label htmlFor="regionals">
+				Hide regionals
+			</Label>
+			<input type="checkbox"
+			       id="regionals"
+			       checked={regionals}
+			       onChange={toggleChange}
 			/>
 		</div>
 	</div>);
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	hideBothProp: () => { dispatch(hideBoth()) },
-	hideLockedProp: () => { dispatch(hideLocked()) },
-	hideObtainedProp: () => { dispatch(hideObtained()) },
-	showAllProp: () => { dispatch(showAll()) }
+	showUnavailableProp: () => {
+		dispatch(showUnavailable())
+	},
+	showObtainedProp: () => {
+		dispatch(showObtained())
+	},
+	showRegionalsProp: () => {
+		dispatch(showRegionals())
+	},
+	hideUnavailableProp: () => {
+		dispatch(hideUnavailable())
+	},
+	hideObtainedProp: () => {
+		dispatch(hideObtained())
+	},
+	hideRegionalsProp: () => {
+		dispatch(hideRegionals())
+	},
 })
 
 FilterSection = connect(null, mapDispatchToProps)(FilterSection)
@@ -77,8 +120,10 @@ FilterSection = connect(null, mapDispatchToProps)(FilterSection)
 export default FilterSection;
 
 FilterSection.propTypes = {
-	hideBothProp: PropTypes.func,
-	hideLockedProp: PropTypes.func,
+	hideUnavailableProp: PropTypes.func,
 	hideObtainedProp: PropTypes.func,
-	showAllProp: PropTypes.func
+	hideRegionalsProp: PropTypes.func,
+	showUnavailableProp: PropTypes.func,
+	showObtainedProp: PropTypes.func,
+	showRegionalsProp: PropTypes.func,
 };

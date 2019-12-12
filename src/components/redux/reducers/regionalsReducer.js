@@ -1,8 +1,9 @@
 import { VisibilityFilters } from '../actions/visibilityFilters';
+import { ActionTypes } from '../actions/actionTypes';
 
-const filters = (state = VisibilityFilters.SHOW_ALL, action) => {
+const filters = (state = VisibilityFilters.SHOW_REGIONALS, action) => {
 	switch (action.type) {
-		case 'SET_VISIBILITY_FILTER':
+		case ActionTypes.SET_REGIONALS:
 			return action.filter;
 		default:
 			return state;

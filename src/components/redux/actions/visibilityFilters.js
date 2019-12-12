@@ -1,28 +1,40 @@
-import { ActionTypes } from './actions';
+import {ActionTypes} from './actionTypes';
 
-export const hideBoth = () => ({
-	type: ActionTypes.SET_FILTER,
-	filter: VisibilityFilters.HIDE_BOTH
+export const showUnavailable = () => ({
+	type: ActionTypes.SET_UNAVAILABLE,
+	filter: VisibilityFilters.SHOW_UNAVAILABLE
 });
 
-export const hideLocked = () => ({
-	type: ActionTypes.SET_FILTER,
-	filter: VisibilityFilters.HIDE_LOCKED
+export const hideUnavailable = () => ({
+	type: ActionTypes.SET_UNAVAILABLE,
+	filter: VisibilityFilters.HIDE_UNAVAILABLE
+});
+
+export const showObtained = () => ({
+	type: ActionTypes.SET_OBTAINED,
+	filter: VisibilityFilters.SHOW_OBTAINED
 });
 
 export const hideObtained = () => ({
-	type: ActionTypes.SET_FILTER,
+	type: ActionTypes.SET_OBTAINED,
 	filter: VisibilityFilters.HIDE_OBTAINED
 });
 
-export const showAll = () => ({
-	type: ActionTypes.SET_FILTER,
-	filter: VisibilityFilters.SHOW_ALL
+export const showRegionals = () => ({
+	type: ActionTypes.SET_REGIONALS,
+	filter: VisibilityFilters.SHOW_REGIONALS
+});
+
+export const hideRegionals = () => ({
+	type: ActionTypes.SET_REGIONALS,
+	filter: VisibilityFilters.HIDE_REGIONALS
 });
 
 export const VisibilityFilters = {
-	SHOW_ALL: 'SHOW_ALL',
+	SHOW_OBTAINED: 'SHOW_OBTAINED',
 	HIDE_OBTAINED: 'HIDE_OBTAINED',
-	HIDE_LOCKED: 'HIDE_LOCKED',
-	HIDE_BOTH: 'HIDE_BOTH'
+	SHOW_UNAVAILABLE: 'SHOW_UNAVAILABLE',
+	HIDE_UNAVAILABLE: 'HIDE_UNAVAILABLE',
+	SHOW_REGIONALS: 'SHOW_REGIONALS',
+	HIDE_REGIONALS: 'HIDE_REGIONALS'
 };

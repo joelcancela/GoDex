@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux'
-import filterReducer from './filterReducer'
+import obtainedReducer from './obtainedReducer'
+import regionalsReducer from './regionalsReducer'
+import unavailableReducer from './unavailableReducer'
 import statsReducer from './statsReducer'
 
 
 const rootReducer = combineReducers({
-	filterReducer,
+	obtainedReducer,
+	regionalsReducer,
+	unavailableReducer,
 	statsReducer
 });
 

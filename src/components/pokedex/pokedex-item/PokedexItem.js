@@ -5,7 +5,7 @@ import './PokedexItem.css';
 import placeholder from './placeholder/unknown.png';
 import {VisibilityFilters} from '../../redux/actions/visibilityFilters'
 
-let PokedexItem = ({pokemon, caught, unavailable, filter = VisibilityFilters.SHOW_ALL}) => {
+let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFilters.HIDE_OBTAINED, regionalFilter = VisibilityFilters.HIDE_REGIONALS, unavailableFilter = VisibilityFilters.HIDE_UNAVAILABLE}) => {
 	const [loaded, setLoaded] = useState(
 		false
 	);
@@ -16,7 +16,11 @@ let PokedexItem = ({pokemon, caught, unavailable, filter = VisibilityFilters.SHO
 	}
 
 	const getStyle = () => {
-		if ((caught && (filter === VisibilityFilters.HIDE_OBTAINED || filter === VisibilityFilters.HIDE_BOTH)) || (unavailable && (filter === VisibilityFilters.HIDE_LOCKED || filter === VisibilityFilters.HIDE_BOTH))) {
+		if (
+			(caught && obtainedFilter === VisibilityFilters.HIDE_OBTAINED) ||
+			(unavailable && unavailableFilter === VisibilityFilters.HIDE_UNAVAILABLE) ||
+			(pokemon.region && regionalFilter === VisibilityFilters.HIDE_REGIONALS)
+		) {
 			return {
 				'display': 'none'
 			}
@@ -117,6 +121,7 @@ let PokedexItem = ({pokemon, caught, unavailable, filter = VisibilityFilters.SHO
 		}
 	}
 
+
 	return (
 		<div className="pokedexItem" style={getStyle()}>
 			<img className="pokemonImage"
@@ -140,8 +145,11 @@ let PokedexItem = ({pokemon, caught, unavailable, filter = VisibilityFilters.SHO
 	);
 }
 
+// See combineReducers in reducers.js
 const mapStateToProps = (state) => ({
-	filter: state.filterReducer,
+	obtainedFilter: state.obtainedReducer,
+	regionalFilter: state.regionalsReducer,
+	unavailableFilter: state.unavailableReducer
 })
 
 PokedexItem = connect(mapStateToProps, null)(PokedexItem)
@@ -152,5 +160,7 @@ PokedexItem.propTypes = {
 	pokemon: PropTypes.object,
 	caught: PropTypes.bool,
 	unavailable: PropTypes.bool,
-	filter: PropTypes.string
+	obtainedFilter: PropTypes.string,
+	regionalFilter: PropTypes.string,
+	unavailableFilter: PropTypes.string
 };

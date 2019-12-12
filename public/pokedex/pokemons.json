@@ -509,6 +509,7 @@
     590,
     591,
     597,
+    598,
     599,
     600,
     601,
@@ -2654,7 +2655,8 @@
     {
       "id": 423,
       "name": "gastrodon",
-      "type": "water"
+      "type": "water",
+      "region": "E/W Meridian"
     },
     {
       "id": 424,
@@ -3106,7 +3108,8 @@
     {
       "id": 512,
       "name": "simisage",
-      "type": "grass"
+      "type": "grass",
+      "region": "Asia Pac"
     },
     {
       "id": 513,
@@ -3117,7 +3120,8 @@
     {
       "id": 514,
       "name": "simisear",
-      "type": "fire"
+      "type": "fire",
+      "region": "EU/ME/AF/IN"
     },
     {
       "id": 515,
@@ -3128,7 +3132,8 @@
     {
       "id": 516,
       "name": "simipour",
-      "type": "water"
+      "type": "water",
+      "region": "NA/SA"
     },
     {
       "id": 517,

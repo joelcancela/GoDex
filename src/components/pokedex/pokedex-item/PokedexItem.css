@@ -36,4 +36,7 @@
     float: right;
     text-align: right;
     border-bottom-right-radius: 5px;
+    overflow: hidden;
+    max-width: 80px;
+    text-overflow: ellipsis;
 }

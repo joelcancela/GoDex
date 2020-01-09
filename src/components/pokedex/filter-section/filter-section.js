@@ -15,6 +15,11 @@ const Label = styled.label`
 	margin-right: 5px;
 `;
 
+const fetchConfig = async () => {
+	const response = await fetch(`/pokedex/config.json`);
+	return await response.json();
+};
+
 let FilterSection = ({hideUnavailableProp,
 	                     hideRegionalsProp,
 	                     hideObtainedProp,
@@ -41,6 +46,16 @@ let FilterSection = ({hideUnavailableProp,
 		if (id === 'regionals')
 			setRegionals(!regionals);
 	}
+
+	useEffect(() => {
+		fetchConfig()
+			.then((response) => {
+				setObtained(response.hideObtained);
+				setUnavailable(response.hideUnavailable);
+				setRegionals(response.hideRegionals);
+			})
+	}, []);
+
 	useEffect(() => {
 		if (obtained) {
 			hideObtainedProp();

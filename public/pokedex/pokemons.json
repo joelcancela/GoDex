@@ -3335,12 +3335,14 @@
     {
       "id": 538,
       "name": "throh",
-      "type": "fighting"
+      "type": "fighting",
+      "region": "NA/SA/AF"
     },
     {
       "id": 539,
       "name": "sawk",
-      "type": "fighting"
+      "type": "fighting",
+      "region": "EU/Asia/AU"
     },
     {
       "id": 540,
@@ -3395,7 +3397,8 @@
     {
       "id": 550,
       "name": "basculin-red-striped",
-      "type": "water"
+      "type": "water",
+      "region": "Hemispheres"
     },
     {
       "id": 551,
@@ -3425,7 +3428,8 @@
     {
       "id": 556,
       "name": "maractus",
-      "type": "grass"
+      "type": "grass",
+      "region": "South America"
     },
     {
       "id": 557,
@@ -3450,7 +3454,8 @@
     {
       "id": 561,
       "name": "sigilyph",
-      "type": "psychic"
+      "type": "psychic",
+      "region": "Egypt/Greece"
     },
     {
       "id": 562,

@@ -31,6 +31,10 @@ const CenterDiv = styled.div`
 	margin-right: auto;
 `;
 
+const MainContainer = styled(Container)`
+	padding-bottom: 50px;
+`;
+
 const Pokedex = lazy(() => import('./pokedex/Pokedex'));
 const store = createStore(rootReducer);
 const currentYear = new Date().getFullYear();
@@ -38,7 +42,7 @@ const currentYear = new Date().getFullYear();
 const App = () => {
 	return (
 		<>
-			<Container>
+			<MainContainer>
 				<Row>
 					<CenterDiv>
 						<Title/>
@@ -59,7 +63,7 @@ const App = () => {
 						</Suspense>
 					</PokedexRow>
 				</Provider>
-			</Container>
+			</MainContainer>
 			<Navbar fixed="bottom" bg="dark">
 				<SpanWhite>GoDex - 2019 - {currentYear}</SpanWhite>
 				<ARight href="https://github.com/joelcancela/GoDex">

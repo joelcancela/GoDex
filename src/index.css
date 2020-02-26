@@ -5,8 +5,8 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-image: url('https://pokemongolive.com/img/global/bg.jpg');
-    background-repeat:no-repeat;
-    background-size: cover;
+    background-image: url('/img/pokedex-background.png');
+    background-repeat: repeat;
+    background-size: contain;
     background-attachment: fixed
 }

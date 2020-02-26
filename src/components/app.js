@@ -1,40 +1,71 @@
-import React, { lazy, Suspense } from 'react';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, {lazy, Suspense} from 'react';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {Container, Row, Col, Navbar} from 'react-bootstrap';
 import rootReducer from './redux/reducers/reducers';
 import Loader from './design/loader';
 import Title from './design/title';
 import FilterSection from './pokedex/filter-section/filter-section';
 import StatsSection from './pokedex/stats-section/stats-section';
+import styled from 'styled-components';
+
+const ARight = styled.a`
+	margin-left: auto;
+	color: white;
+	
+	&:hover {
+		color: white;
+	}
+`;
+
+const SpanWhite = styled.span`
+	color: white;
+`;
+
+const PokedexRow = styled(Row)`
+	margin-left: -10px;
+`;
+
+const CenterDiv = styled.div`
+	margin-left: auto;
+	margin-right: auto;
+`;
 
 const Pokedex = lazy(() => import('./pokedex/Pokedex'));
 const store = createStore(rootReducer);
+const currentYear = new Date().getFullYear();
 
 const App = () => {
 	return (
-		<Container>
-			<Row>
-				<Col xs={{ span: 4, offset: 4 }} md={{ span: 4, offset: 4 }} lg={{ span: 4, offset: 4 }} className="text-center">
-					<Title />
-				</Col>
-			</Row>
-			<Provider store={store}>
+		<>
+			<Container>
 				<Row>
-					<Col xs lg md="6">
-						<StatsSection />
-					</Col>
-					<Col xs lg md="6">
-						<FilterSection />
-					</Col>
+					<CenterDiv>
+						<Title/>
+					</CenterDiv>
 				</Row>
-				<Row>
-					<Suspense fallback={<Loader />}>
-						<Pokedex />
-					</Suspense>
-				</Row>
-			</Provider>
-		</Container >
+				<Provider store={store}>
+					<Row>
+						<Col xs="6" lg="6" md="6">
+							<StatsSection/>
+						</Col>
+						<Col xs="6" lg="6" md="6">
+							<FilterSection/>
+						</Col>
+					</Row>
+					<PokedexRow>
+						<Suspense fallback={<Loader/>}>
+							<Pokedex/>
+						</Suspense>
+					</PokedexRow>
+				</Provider>
+			</Container>
+			<Navbar fixed="bottom" bg="dark">
+				<SpanWhite>GoDex - 2019 - {currentYear}</SpanWhite>
+				<ARight href="https://github.com/joelcancela/GoDex">
+					<i className="devicon-github-plain"/> GitHub</ARight>
+			</Navbar>
+		</>
 	);
 };
 

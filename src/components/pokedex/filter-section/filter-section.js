@@ -11,6 +11,13 @@ import {
 } from '../../redux/actions/visibilityFilters';
 import styled from 'styled-components';
 
+const DivStat = styled.div`
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	padding: 7px;
+	color: white;
+`;
+
 const Label = styled.label`
 	margin-right: 5px;
 `;
@@ -74,7 +81,7 @@ let FilterSection = ({hideUnavailableProp,
 		}
 	});
 
-	return (<div>
+	return (<DivStat>
 		<h2>Filters</h2>
 		<div>
 			<Label htmlFor="obtained">
@@ -106,7 +113,7 @@ let FilterSection = ({hideUnavailableProp,
 			       onChange={toggleChange}
 			/>
 		</div>
-	</div>);
+	</DivStat>);
 }
 
 const mapDispatchToProps = (dispatch) => ({

@@ -43,7 +43,8 @@ let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFil
 	}
 
 	const gradientType = () => {
-		switch (pokemon.type) {
+		const currentPokemonType = pokemon.type || pokemon.types[0].toLowerCase();
+		switch (currentPokemonType) {
 			case 'normal':
 				return {
 					background: 'radial-gradient(#fff2c0, #deb19c)',

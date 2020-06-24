@@ -25,7 +25,7 @@ let Pokedex = ({ updateStats }) => {
 	}, []);
 
 	useEffect(() => {
-		updateStats(pokemonsCaught, pokemonsUnavailable);
+		updateStats(pokemonsCaught, pokemonsUnavailable, pokemons);
 	});
 
 	return (<PokemonContainer pokemons={pokemons} pokemonsCaught={pokemonsCaught} pokemonsUnavailable={pokemonsUnavailable} />);
@@ -33,7 +33,7 @@ let Pokedex = ({ updateStats }) => {
 
 
 const mapDispatchToProps = (dispatch) => ({
-	updateStats: (pokemonsCaught, pokemonsUnavailable) => { dispatch(setStats({ caught: pokemonsCaught.length, unavailable: pokemonsUnavailable.length })) }
+	updateStats: (pokemonsCaught, pokemonsUnavailable, pokemonsTotal) => { dispatch(setStats({ caught: pokemonsCaught.length, unavailable: pokemonsUnavailable.length, total: pokemonsTotal.length })) }
 })
 
 Pokedex = connect(null, mapDispatchToProps)(Pokedex)

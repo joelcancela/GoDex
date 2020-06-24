@@ -1,4 +1,5 @@
 #!/bin/bash
+# Pokeapi does not have 8th gen data yet !
 count=$(curl -s https://pokeapi.co/api/v2/pokemon | jq '.count')
 echo $count
 read

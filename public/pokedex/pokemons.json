@@ -4031,7 +4031,8 @@
     {
       "id": 626,
       "name": "bouffalant",
-      "type": "normal"
+      "type": "normal",
+      "region": "USA"
     },
     {
       "id": 627,

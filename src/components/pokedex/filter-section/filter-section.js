@@ -23,7 +23,7 @@ const Label = styled.label`
 `;
 
 const fetchConfig = async () => {
-	const response = await fetch(`/pokedex/config.json`);
+	const response = await fetch(`./pokedex/config.json`);
 	return await response.json();
 };
 

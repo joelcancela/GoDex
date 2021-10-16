@@ -5,7 +5,7 @@ import { setStats } from '../redux/actions/stats';
 import { connect } from 'react-redux';
 
 const fetchPokemonsGo = async () => {
-	const response = await fetch(`/pokedex/pokemons.json`);
+	const response = await fetch(`./pokedex/pokemons.json`);
 	const result = await response.json();
 	return result;
 };

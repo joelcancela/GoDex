@@ -2,6 +2,7 @@
   "name": "go-dex",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://joelcancela.ddns.net/pgo/",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "prop-types": "latest",

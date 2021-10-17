@@ -31,7 +31,8 @@
         "comma-dangle": "off",
         "block-spacing": "off",
         "brace-style": "off",
-        "curly": "off"
+        "curly": "off",
+        "no-mixed-spaces-and-tabs": "off"
     },
     "settings": {
         "react": {

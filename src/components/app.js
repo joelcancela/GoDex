@@ -23,7 +23,7 @@ const SpanWhite = styled.span`
 `;
 
 const PokedexRow = styled(Row)`
-	margin-left: -10px;
+	justify-content: space-between;
 `;
 
 const CenterDiv = styled.div`

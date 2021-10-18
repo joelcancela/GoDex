@@ -12,9 +12,11 @@ import styled from 'styled-components';
 const ARight = styled.a`
 	margin-left: auto;
 	color: white;
-	
+	text-decoration: none;
+
 	&:hover {
 		color: white;
+		text-decoration: underline;
 	}
 `;
 
@@ -31,12 +33,17 @@ const PokedexItems = styled.div`
 const CenterDiv = styled.div`
 	margin-left: auto;
 	margin-right: auto;
+	width: auto;
 `;
 
 const MainContainer = styled(Container)`
 	padding-bottom: 50px;
 `;
 
+const CustomNavbar = styled(Navbar)`
+	padding-left: 1rem;
+	padding-right: 1rem;
+`;
 const Pokedex = lazy(() => import('./pokedex/Pokedex'));
 const store = createStore(rootReducer);
 const currentYear = new Date().getFullYear();
@@ -66,11 +73,11 @@ const App = () => {
 					</PokedexItems>
 				</Provider>
 			</MainContainer>
-			<Navbar fixed="bottom" bg="dark">
+			<CustomNavbar fixed="bottom" bg="dark">
 				<SpanWhite>GoDex - 2019 - {currentYear}</SpanWhite>
 				<ARight href="https://github.com/joelcancela/GoDex">
 					<i className="devicon-github-plain"/> GitHub</ARight>
-			</Navbar>
+			</CustomNavbar>
 		</>
 	);
 };

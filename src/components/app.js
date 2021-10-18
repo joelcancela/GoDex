@@ -22,7 +22,9 @@ const SpanWhite = styled.span`
 	color: white;
 `;
 
-const PokedexRow = styled(Row)`
+const PokedexItems = styled.div`
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 `;
 
@@ -57,11 +59,11 @@ const App = () => {
 							<FilterSection/>
 						</Col>
 					</Row>
-					<PokedexRow>
+					<PokedexItems>
 						<Suspense fallback={<Loader/>}>
 							<Pokedex/>
 						</Suspense>
-					</PokedexRow>
+					</PokedexItems>
 				</Provider>
 			</MainContainer>
 			<Navbar fixed="bottom" bg="dark">

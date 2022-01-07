@@ -504,6 +504,7 @@
     513,
     514,
     515,
+    516,
     517,
     518,
     519,
@@ -3312,7 +3313,7 @@
       "id": 480,
       "name": "uxie",
       "type": "psychic",
-      "region": "SA"
+      "region": "Asia Pac"
     },
     {
       "id": 481,
@@ -3324,7 +3325,7 @@
       "id": 482,
       "name": "azelf",
       "type": "psychic",
-      "region": "Asia Pac"
+      "region": "NA/SA/Groen"
     },
     {
       "id": 483,

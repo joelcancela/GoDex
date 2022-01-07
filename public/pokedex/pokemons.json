@@ -1468,7 +1468,7 @@
       "id": 115,
       "name": "kangaskhan",
       "type": "normal",
-      "region": "AU/NZ"
+      "region": "AU/PPNG"
     },
     {
       "id": 116,
@@ -1504,7 +1504,7 @@
       "id": 122,
       "name": "mr-mime",
       "type": "psychic",
-      "region": "EU"
+      "region": "EU/TK/ICELAND"
     },
     {
       "id": 123,
@@ -1966,7 +1966,7 @@
       "id": 214,
       "name": "heracross",
       "type": "bug",
-      "region": "South USA"
+      "region": "Cen/Sth America"
     },
     {
       "id": 215,
@@ -2463,13 +2463,13 @@
       "id": 313,
       "name": "volbeat",
       "type": "bug",
-      "region": "EU/Asia/AU/NZ"
+      "region": "East Hemi"
     },
     {
       "id": 314,
       "name": "illumise",
       "type": "bug",
-      "region": "NA/SA/AF"
+      "region": "West Hemi"
     },
     {
       "id": 315,
@@ -2520,7 +2520,7 @@
       "id": 324,
       "name": "torkoal",
       "type": "fire",
-      "region": "South Asia"
+      "region": "IN/CN/Cen Sth Asia"
     },
     {
       "id": 325,
@@ -2576,25 +2576,25 @@
       "id": 335,
       "name": "zangoose",
       "type": "normal",
-      "region": "EU/Asia/AU"
+      "region": "East Hemi"
     },
     {
       "id": 336,
       "name": "seviper",
       "type": "poison",
-      "region": "NA/SA/AF"
+      "region": "West Hemi"
     },
     {
       "id": 337,
       "name": "lunatone",
       "type": "rock",
-      "region": "EU/Asia/AU"
+      "region": "East Hemi"
     },
     {
       "id": 338,
       "name": "solrock",
       "type": "rock",
-      "region": "NA/SA/AF"
+      "region": "West Hemi"
     },
     {
       "id": 339,
@@ -2690,7 +2690,7 @@
       "id": 357,
       "name": "tropius",
       "type": "grass",
-      "region": "AF/Medit"
+      "region": "AF/Mid East"
     },
     {
       "id": 358,
@@ -2751,7 +2751,7 @@
       "id": 369,
       "name": "relicanth",
       "type": "water",
-      "region": "NZ"
+      "region": "NZ/Fiji"
     },
     {
       "id": 370,
@@ -3187,7 +3187,7 @@
       "id": 455,
       "name": "carnivine",
       "type": "grass",
-      "region": "FL/SC/USA"
+      "region": "FL/GE/SC"
     },
     {
       "id": 456,
@@ -3612,13 +3612,13 @@
       "id": 538,
       "name": "throh",
       "type": "fighting",
-      "region": "NA/SA/AF"
+      "region": "West Hemi"
     },
     {
       "id": 539,
       "name": "sawk",
       "type": "fighting",
-      "region": "EU/Asia/AU"
+      "region": "East Hemi"
     },
     {
       "id": 540,
@@ -3705,7 +3705,7 @@
       "id": 556,
       "name": "maractus",
       "type": "grass",
-      "region": "South America"
+      "region": "Cen-Sth America"
     },
     {
       "id": 557,
@@ -4057,7 +4057,7 @@
       "id": 626,
       "name": "bouffalant",
       "type": "normal",
-      "region": "USA"
+      "region": "East USA"
     },
     {
       "id": 627,
@@ -4083,13 +4083,13 @@
       "id": 631,
       "name": "heatmor",
       "type": "fire",
-      "region": "NA/SA/AF"
+      "region": "West Hemi"
     },
     {
       "id": 632,
       "name": "durant",
       "type": "bug",
-      "region": "EU/Asia/AU"
+      "region": "East Hemi"
     },
     {
       "id": 633,

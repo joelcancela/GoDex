@@ -27,7 +27,7 @@ const SpanWhite = styled.span`
 const PokedexItems = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
 `;
 
 const CenterDiv = styled.div`

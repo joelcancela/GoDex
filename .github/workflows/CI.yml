@@ -1,4 +1,4 @@
-name: GoDex update
+name: GoDex Website update
 
 on: [push]
 

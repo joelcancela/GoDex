@@ -1,14 +1,14 @@
 name: GoDex Pokédex update
-on: [push]
+on:
+  schedule:
+    - cron: "*/5 * * * *"
 jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - name: Updating pokemon.json with new available pokémons
         run: curl -s https://joelcancela.ddns.net/api/misc/missingPokemons | jq -r '.[]' | xargs -n1 -I '{}' sed -i -E "/^\s+{},/d" ./public/pokedex/pokemons.json
-
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4

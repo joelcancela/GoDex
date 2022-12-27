@@ -648,6 +648,8 @@
     661,
     662,
     663,
+    664,
+    665,
     667,
     668,
     669,
@@ -735,6 +737,7 @@
     788,
     789,
     790,
+    792,
     793,
     794,
     795,
@@ -755,7 +758,8 @@
     870,
     888,
     889,
-    893
+    893,
+    901
   ],
   "unavailable": [
     352,
@@ -878,7 +882,13 @@
     895,
     896,
     897,
-    898
+    898,
+    899,
+    900,
+    902,
+    903,
+    904,
+    905
   ],
   "pokemons": [
     {
@@ -5408,6 +5418,41 @@
       "id": 898,
       "name": "calyrex",
       "type": "psychic"
+    },
+    {
+      "id": 899,
+      "name": "cerbyllin",
+      "type": "normal"
+    },
+    {
+      "id": 900,
+      "name": "hachécateur",
+      "type": "bug"
+    },
+    {
+      "id": 901,
+      "name": "ursaking",
+      "type": "ground"
+    },
+    {
+      "id": 902,
+      "name": "paragruel",
+      "type": "water"
+    },
+    {
+      "id": 903,
+      "name": "farfurex",
+      "type": "fighting"
+    },
+    {
+      "id": 904,
+      "name": "qwilpik",
+      "type": "dark"
+    },
+    {
+      "id": 905,
+      "name": "amovénus",
+      "type": "fairy"
     }
   ]
 }

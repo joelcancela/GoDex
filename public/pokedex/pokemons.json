@@ -4430,7 +4430,8 @@
     {
       "id": 701,
       "name": "hawlucha",
-      "type": "fighting"
+      "type": "fighting",
+      "region": "Mexico"
     },
     {
       "id": 702,
@@ -4745,7 +4746,8 @@
     {
       "id": 764,
       "name": "comfey",
-      "type": "fairy"
+      "type": "fairy",
+      "region": "Hawaï"
     },
     {
       "id": 765,
@@ -4910,7 +4912,8 @@
     {
       "id": 797,
       "name": "celesteela",
-      "type": "steel"
+      "type": "steel",
+      "region": "South Hemi"
     },
     {
       "id": 798,

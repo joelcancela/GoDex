@@ -29,7 +29,4 @@ jobs:
             automated pr
           assignees: joelcancela
           reviewers: joelcancela
-          team-reviewers: |
-            owners
-            maintainers
           draft: false

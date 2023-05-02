@@ -1,7 +1,7 @@
 name: GoDex Pokédex update
 on:
   schedule:
-    - cron: "0 9-17 * * *"
+    - cron: "0 12 * * *"
 jobs:
   cron:
     runs-on: ubuntu-latest

@@ -38,6 +38,7 @@ const CenterDiv = styled.div`
 
 const MainContainer = styled(Container)`
 	padding-bottom: 50px;
+	height: 100vh;
 `;
 
 const CustomNavbar = styled(Navbar)`

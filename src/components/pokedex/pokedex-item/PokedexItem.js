@@ -11,7 +11,7 @@ let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFil
 	);
 
 	const getPokemonSpritePath = () => {
-		const URL = 'https://assets.thesilphroad.com/img/pokemon/icons/96x96/' + pokemon.id + '.png';
+		const URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png';
 		return URL;
 	}
 

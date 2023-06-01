@@ -28,6 +28,7 @@ const PokedexItems = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
+	margin-bottom: 40px;
 `;
 
 const CenterDiv = styled.div`

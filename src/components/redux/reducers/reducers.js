@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
 import obtainedReducer from './obtainedReducer'
-import regionalsReducer from './regionalsReducer'
+import specialsReducer from './specialsReducer'
 import unavailableReducer from './unavailableReducer'
 import statsReducer from './statsReducer'
 
 
 const rootReducer = combineReducers({
 	obtainedReducer,
-	regionalsReducer,
+	specialsReducer,
 	unavailableReducer,
 	statsReducer
 });

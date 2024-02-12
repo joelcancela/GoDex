@@ -413,7 +413,7 @@
     "id": 83,
     "name": "farfetchd",
     "type": "normal",
-    "region": "Asia"
+    "special": "Asia"
   },
   {
     "id": 84,
@@ -574,7 +574,7 @@
     "id": 115,
     "name": "kangaskhan",
     "type": "normal",
-    "region": "AU/NZ"
+    "special": "AU/NZ"
   },
   {
     "id": 116,
@@ -610,7 +610,7 @@
     "id": 122,
     "name": "mr-mime",
     "type": "psychic",
-    "region": "EU"
+    "special": "EU"
   },
   {
     "id": 123,
@@ -641,7 +641,7 @@
     "id": 128,
     "name": "tauros",
     "type": "normal",
-    "region": "USA"
+    "special": "USA"
   },
   {
     "id": 129,
@@ -1072,7 +1072,7 @@
     "id": 214,
     "name": "heracross",
     "type": "bug",
-    "region": "South USA"
+    "special": "South USA"
   },
   {
     "id": 215,
@@ -1113,7 +1113,7 @@
     "id": 222,
     "name": "corsola",
     "type": "water",
-    "region": "Tropics"
+    "special": "Tropics"
   },
   {
     "id": 223,
@@ -1569,13 +1569,13 @@
     "id": 313,
     "name": "volbeat",
     "type": "bug",
-    "region": "EU/Asia/AU/NZ"
+    "special": "EU/Asia/AU/NZ"
   },
   {
     "id": 314,
     "name": "illumise",
     "type": "bug",
-    "region": "NA/SA/AF"
+    "special": "NA/SA/AF"
   },
   {
     "id": 315,
@@ -1626,7 +1626,7 @@
     "id": 324,
     "name": "torkoal",
     "type": "fire",
-    "region": "South Asia"
+    "special": "South Asia"
   },
   {
     "id": 325,
@@ -1682,25 +1682,25 @@
     "id": 335,
     "name": "zangoose",
     "type": "normal",
-    "region": "EU/Asia/AU"
+    "special": "EU/Asia/AU"
   },
   {
     "id": 336,
     "name": "seviper",
     "type": "poison",
-    "region": "NA/SA/AF"
+    "special": "NA/SA/AF"
   },
   {
     "id": 337,
     "name": "lunatone",
     "type": "rock",
-    "region": "EU/Asia/AU"
+    "special": "EU/Asia/AU"
   },
   {
     "id": 338,
     "name": "solrock",
     "type": "rock",
-    "region": "NA/SA/AF"
+    "special": "NA/SA/AF"
   },
   {
     "id": 339,
@@ -1796,7 +1796,7 @@
     "id": 357,
     "name": "tropius",
     "type": "grass",
-    "region": "AF/Medit"
+    "special": "AF/Medit"
   },
   {
     "id": 358,
@@ -1857,7 +1857,7 @@
     "id": 369,
     "name": "relicanth",
     "type": "water",
-    "region": "NZ"
+    "special": "NZ"
   },
   {
     "id": 370,
@@ -2098,7 +2098,7 @@
     "id": 417,
     "name": "pachirisu",
     "type": "electric",
-    "region": "AL/CAN/RU"
+    "special": "AL/CAN/RU"
   },
   {
     "id": 418,
@@ -2124,13 +2124,13 @@
     "id": 422,
     "name": "shellos",
     "type": "water",
-    "region": "E/W Meridian"
+    "special": "E/W Meridian"
   },
   {
     "id": 423,
     "name": "gastrodon",
     "type": "water",
-    "region": "E/W Meridian"
+    "special": "E/W Meridian"
   },
   {
     "id": 424,
@@ -2211,7 +2211,7 @@
     "id": 439,
     "name": "mime-jr",
     "type": "psychic",
-    "region": "EU"
+    "special": "EU"
   },
   {
     "id": 440,
@@ -2222,7 +2222,7 @@
     "id": 441,
     "name": "chatot",
     "type": "normal",
-    "region": "South Hemi"
+    "special": "South Hemi"
   },
   {
     "id": 442,
@@ -2293,7 +2293,7 @@
     "id": 455,
     "name": "carnivine",
     "type": "grass",
-    "region": "FL/SC/USA"
+    "special": "FL/SC/USA"
   },
   {
     "id": 456,
@@ -2419,19 +2419,19 @@
     "id": 480,
     "name": "uxie",
     "type": "psychic",
-    "region": "SA"
+    "special": "SA"
   },
   {
     "id": 481,
     "name": "mesprit",
     "type": "psychic",
-    "region": "EU/ME/AF/IN"
+    "special": "EU/ME/AF/IN"
   },
   {
     "id": 482,
     "name": "azelf",
     "type": "psychic",
-    "region": "Asia Pac"
+    "special": "Asia Pac"
   },
   {
     "id": 483,
@@ -2577,37 +2577,37 @@
     "id": 511,
     "name": "pansage",
     "type": "grass",
-    "region": "Asia Pac"
+    "special": "Asia Pac"
   },
   {
     "id": 512,
     "name": "simisage",
     "type": "grass",
-    "region": "Asia Pac"
+    "special": "Asia Pac"
   },
   {
     "id": 513,
     "name": "pansear",
     "type": "fire",
-    "region": "EU/ME/AF/IN"
+    "special": "EU/ME/AF/IN"
   },
   {
     "id": 514,
     "name": "simisear",
     "type": "fire",
-    "region": "EU/ME/AF/IN"
+    "special": "EU/ME/AF/IN"
   },
   {
     "id": 515,
     "name": "panpour",
     "type": "water",
-    "region": "NA/SA"
+    "special": "NA/SA"
   },
   {
     "id": 516,
     "name": "simipour",
     "type": "water",
-    "region": "NA/SA"
+    "special": "NA/SA"
   },
   {
     "id": 517,
@@ -2718,13 +2718,13 @@
     "id": 538,
     "name": "throh",
     "type": "fighting",
-    "region": "NA/SA/AF"
+    "special": "NA/SA/AF"
   },
   {
     "id": 539,
     "name": "sawk",
     "type": "fighting",
-    "region": "EU/Asia/AU"
+    "special": "EU/Asia/AU"
   },
   {
     "id": 540,
@@ -2780,7 +2780,7 @@
     "id": 550,
     "name": "basculin-red-striped",
     "type": "water",
-    "region": "Hemispheres"
+    "special": "Hemispheres"
   },
   {
     "id": 551,
@@ -2811,7 +2811,7 @@
     "id": 556,
     "name": "maractus",
     "type": "grass",
-    "region": "South America"
+    "special": "South America"
   },
   {
     "id": 557,
@@ -2837,7 +2837,7 @@
     "id": 561,
     "name": "sigilyph",
     "type": "psychic",
-    "region": "Egypt/Greece"
+    "special": "Egypt/Greece"
   },
   {
     "id": 562,
@@ -3188,13 +3188,13 @@
     "id": 631,
     "name": "heatmor",
     "type": "fire",
-    "region": "NA/SA/AF"
+    "special": "NA/SA/AF"
   },
   {
     "id": 632,
     "name": "durant",
     "type": "bug",
-    "region": "EU/Asia/AU"
+    "special": "EU/Asia/AU"
   },
   {
     "id": 633,

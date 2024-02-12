@@ -5,7 +5,7 @@ import './PokedexItem.css';
 import placeholder from './placeholder/unknown.png';
 import {VisibilityFilters} from '../../redux/actions/visibilityFilters'
 
-let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFilters.HIDE_OBTAINED, regionalFilter = VisibilityFilters.HIDE_REGIONALS, unavailableFilter = VisibilityFilters.HIDE_UNAVAILABLE}) => {
+let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFilters.HIDE_OBTAINED, specialFilter = VisibilityFilters.HIDE_REGIONALS, unavailableFilter = VisibilityFilters.HIDE_UNAVAILABLE}) => {
 	const [loaded, setLoaded] = useState(
 		false
 	);
@@ -19,7 +19,7 @@ let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFil
 		if (
 			(caught && obtainedFilter === VisibilityFilters.HIDE_OBTAINED) ||
 			(unavailable && unavailableFilter === VisibilityFilters.HIDE_UNAVAILABLE) ||
-			(pokemon.region && regionalFilter === VisibilityFilters.HIDE_REGIONALS)
+			(pokemon.special && specialFilter === VisibilityFilters.HIDE_REGIONALS)
 		) {
 			return {
 				'display': 'none'
@@ -138,8 +138,8 @@ let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFil
 				className="pokemonNumber">
 				#{parseInt(pokemon.id).toString().padStart(3, '0')}
 			</span>
-				{pokemon.region ? <span className="pokemonRegion">
-				{pokemon.region}
+				{pokemon.special ? <span className="pokemonRegion">
+				{pokemon.special}
 			</span> : null}
 			</div>
 		</div>
@@ -149,7 +149,7 @@ let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFil
 // See combineReducers in reducers.js
 const mapStateToProps = (state) => ({
 	obtainedFilter: state.obtainedReducer,
-	regionalFilter: state.regionalsReducer,
+	specialFilter: state.specialsReducer,
 	unavailableFilter: state.unavailableReducer
 })
 
@@ -162,6 +162,6 @@ PokedexItem.propTypes = {
 	caught: PropTypes.bool,
 	unavailable: PropTypes.bool,
 	obtainedFilter: PropTypes.string,
-	regionalFilter: PropTypes.string,
+	specialFilter: PropTypes.string,
 	unavailableFilter: PropTypes.string
 };

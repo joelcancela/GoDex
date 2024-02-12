@@ -20,13 +20,13 @@ export const hideObtained = () => ({
 	filter: VisibilityFilters.HIDE_OBTAINED
 });
 
-export const showRegionals = () => ({
-	type: ActionTypes.SET_REGIONALS,
-	filter: VisibilityFilters.SHOW_REGIONALS
+export const showSpecials = () => ({
+	type: ActionTypes.SET_SPECIALS,
+	filter: VisibilityFilters.SHOW_SPECIALS
 });
 
-export const hideRegionals = () => ({
-	type: ActionTypes.SET_REGIONALS,
+export const hideSpecials = () => ({
+	type: ActionTypes.SET_SPECIALS,
 	filter: VisibilityFilters.HIDE_REGIONALS
 });
 
@@ -35,6 +35,6 @@ export const VisibilityFilters = {
 	HIDE_OBTAINED: 'HIDE_OBTAINED',
 	SHOW_UNAVAILABLE: 'SHOW_UNAVAILABLE',
 	HIDE_UNAVAILABLE: 'HIDE_UNAVAILABLE',
-	SHOW_REGIONALS: 'SHOW_REGIONALS',
+	SHOW_SPECIALS: 'SHOW_SPECIALS',
 	HIDE_REGIONALS: 'HIDE_REGIONALS'
 };

@@ -1413,7 +1413,7 @@
       "id": 83,
       "name": "farfetchd",
       "type": "normal",
-      "region": "Asia"
+      "special": "Asia"
     },
     {
       "id": 84,
@@ -1574,7 +1574,7 @@
       "id": 115,
       "name": "kangaskhan",
       "type": "normal",
-      "region": "AU/PPNG"
+      "special": "AU/PPNG"
     },
     {
       "id": 116,
@@ -1610,7 +1610,7 @@
       "id": 122,
       "name": "mr-mime",
       "type": "psychic",
-      "region": "EU/TK/ICELAND"
+      "special": "EU/TK/ICELAND"
     },
     {
       "id": 123,
@@ -1641,7 +1641,7 @@
       "id": 128,
       "name": "tauros",
       "type": "normal",
-      "region": "USA"
+      "special": "USA"
     },
     {
       "id": 129,
@@ -2072,7 +2072,7 @@
       "id": 214,
       "name": "heracross",
       "type": "bug",
-      "region": "Cen/Sth America"
+      "special": "Cen/Sth America"
     },
     {
       "id": 215,
@@ -2113,7 +2113,7 @@
       "id": 222,
       "name": "corsola",
       "type": "water",
-      "region": "Tropics"
+      "special": "Tropics"
     },
     {
       "id": 223,
@@ -2569,13 +2569,13 @@
       "id": 313,
       "name": "volbeat",
       "type": "bug",
-      "region": "East Hemi"
+      "special": "East Hemi"
     },
     {
       "id": 314,
       "name": "illumise",
       "type": "bug",
-      "region": "West Hemi"
+      "special": "West Hemi"
     },
     {
       "id": 315,
@@ -2626,7 +2626,7 @@
       "id": 324,
       "name": "torkoal",
       "type": "fire",
-      "region": "IN/CN/Cen Sth Asia"
+      "special": "IN/CN/Cen Sth Asia"
     },
     {
       "id": 325,
@@ -2682,25 +2682,25 @@
       "id": 335,
       "name": "zangoose",
       "type": "normal",
-      "region": "East Hemi"
+      "special": "East Hemi"
     },
     {
       "id": 336,
       "name": "seviper",
       "type": "poison",
-      "region": "West Hemi"
+      "special": "West Hemi"
     },
     {
       "id": 337,
       "name": "lunatone",
       "type": "rock",
-      "region": "East Hemi"
+      "special": "East Hemi"
     },
     {
       "id": 338,
       "name": "solrock",
       "type": "rock",
-      "region": "West Hemi"
+      "special": "West Hemi"
     },
     {
       "id": 339,
@@ -2796,7 +2796,7 @@
       "id": 357,
       "name": "tropius",
       "type": "grass",
-      "region": "AF/Mid East"
+      "special": "AF/Mid East"
     },
     {
       "id": 358,
@@ -2857,7 +2857,7 @@
       "id": 369,
       "name": "relicanth",
       "type": "water",
-      "region": "NZ/Fiji"
+      "special": "NZ/Fiji"
     },
     {
       "id": 370,
@@ -3098,7 +3098,7 @@
       "id": 417,
       "name": "pachirisu",
       "type": "electric",
-      "region": "AL/CAN/RU"
+      "special": "AL/CAN/RU"
     },
     {
       "id": 418,
@@ -3124,13 +3124,13 @@
       "id": 422,
       "name": "shellos",
       "type": "water",
-      "region": "E/W Meridian"
+      "special": "E/W Meridian"
     },
     {
       "id": 423,
       "name": "gastrodon",
       "type": "water",
-      "region": "E/W Meridian"
+      "special": "E/W Meridian"
     },
     {
       "id": 424,
@@ -3211,7 +3211,7 @@
       "id": 439,
       "name": "mime-jr",
       "type": "psychic",
-      "region": "EU"
+      "special": "EU"
     },
     {
       "id": 440,
@@ -3222,7 +3222,7 @@
       "id": 441,
       "name": "chatot",
       "type": "normal",
-      "region": "South Hemi"
+      "special": "South Hemi"
     },
     {
       "id": 442,
@@ -3293,7 +3293,7 @@
       "id": 455,
       "name": "carnivine",
       "type": "grass",
-      "region": "FL/GE/SC"
+      "special": "FL/GE/SC"
     },
     {
       "id": 456,
@@ -3419,19 +3419,19 @@
       "id": 480,
       "name": "uxie",
       "type": "psychic",
-      "region": "Asia Pac"
+      "special": "Asia Pac"
     },
     {
       "id": 481,
       "name": "mesprit",
       "type": "psychic",
-      "region": "EU/ME/AF/IN"
+      "special": "EU/ME/AF/IN"
     },
     {
       "id": 482,
       "name": "azelf",
       "type": "psychic",
-      "region": "NA/SA/Groen"
+      "special": "NA/SA/Groen"
     },
     {
       "id": 483,
@@ -3577,37 +3577,37 @@
       "id": 511,
       "name": "pansage",
       "type": "grass",
-      "region": "Asia Pac"
+      "special": "Asia Pac"
     },
     {
       "id": 512,
       "name": "simisage",
       "type": "grass",
-      "region": "Asia Pac"
+      "special": "Asia Pac"
     },
     {
       "id": 513,
       "name": "pansear",
       "type": "fire",
-      "region": "EU/ME/AF/IN"
+      "special": "EU/ME/AF/IN"
     },
     {
       "id": 514,
       "name": "simisear",
       "type": "fire",
-      "region": "EU/ME/AF/IN"
+      "special": "EU/ME/AF/IN"
     },
     {
       "id": 515,
       "name": "panpour",
       "type": "water",
-      "region": "NA/SA"
+      "special": "NA/SA"
     },
     {
       "id": 516,
       "name": "simipour",
       "type": "water",
-      "region": "NA/SA"
+      "special": "NA/SA"
     },
     {
       "id": 517,
@@ -3718,13 +3718,13 @@
       "id": 538,
       "name": "throh",
       "type": "fighting",
-      "region": "West Hemi"
+      "special": "West Hemi"
     },
     {
       "id": 539,
       "name": "sawk",
       "type": "fighting",
-      "region": "East Hemi"
+      "special": "East Hemi"
     },
     {
       "id": 540,
@@ -3780,7 +3780,7 @@
       "id": 550,
       "name": "basculin-red-striped",
       "type": "water",
-      "region": "Hemispheres"
+      "special": "Hemispheres"
     },
     {
       "id": 551,
@@ -3811,7 +3811,7 @@
       "id": 556,
       "name": "maractus",
       "type": "grass",
-      "region": "Cen-Sth America"
+      "special": "Cen-Sth America"
     },
     {
       "id": 557,
@@ -3837,7 +3837,7 @@
       "id": 561,
       "name": "sigilyph",
       "type": "psychic",
-      "region": "Egypt/Greece"
+      "special": "Egypt/Greece"
     },
     {
       "id": 562,
@@ -4163,7 +4163,7 @@
       "id": 626,
       "name": "bouffalant",
       "type": "normal",
-      "region": "East USA"
+      "special": "East USA"
     },
     {
       "id": 627,
@@ -4189,13 +4189,13 @@
       "id": 631,
       "name": "heatmor",
       "type": "fire",
-      "region": "West Hemi"
+      "special": "West Hemi"
     },
     {
       "id": 632,
       "name": "durant",
       "type": "bug",
-      "region": "East Hemi"
+      "special": "East Hemi"
     },
     {
       "id": 633,
@@ -4270,7 +4270,8 @@
     {
       "id": 647,
       "name": "keldeo-ordinary",
-      "type": "water"
+      "type": "water",
+      "special": "Event"
     },
     {
       "id": 648,
@@ -4395,12 +4396,14 @@
     {
       "id": 672,
       "name": "skiddo",
-      "type": "grass"
+      "type": "grass",
+      "special": "Event"
     },
     {
       "id": 673,
       "name": "gogoat",
-      "type": "grass"
+      "type": "grass",
+      "special": "Event"
     },
     {
       "id": 674,
@@ -4541,7 +4544,7 @@
       "id": 701,
       "name": "hawlucha",
       "type": "fighting",
-      "region": "Mexico"
+      "special": "Mexico"
     },
     {
       "id": 702,
@@ -4631,7 +4634,8 @@
     {
       "id": 719,
       "name": "diancie",
-      "type": "rock"
+      "type": "rock",
+      "special": "Event"
     },
     {
       "id": 720,
@@ -4857,7 +4861,7 @@
       "id": 764,
       "name": "comfey",
       "type": "fairy",
-      "region": "Hawaï"
+      "special": "Hawaï"
     },
     {
       "id": 765,
@@ -4912,7 +4916,8 @@
     {
       "id": 775,
       "name": "komala",
-      "type": "normal"
+      "type": "normal",
+      "special": "Event"
     },
     {
       "id": 776,
@@ -5023,7 +5028,7 @@
       "id": 797,
       "name": "celesteela",
       "type": "steel",
-      "region": "South Hemi"
+      "special": "South Hemi"
     },
     {
       "id": 798,
@@ -6033,12 +6038,14 @@
     {
       "id": 999,
       "name": "gimmighoul",
-      "type": "ghost"
+      "type": "ghost",
+      "special": "Game transfer"
     },
     {
       "id": 1000,
       "name": "gholdengo",
-      "type": "steel"
+      "type": "steel",
+      "special": "Game transfer"
     },
     {
       "id": 1001,

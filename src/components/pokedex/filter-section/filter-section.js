@@ -4,10 +4,10 @@ import {connect} from 'react-redux';
 import {
 	showUnavailable,
 	showObtained,
-	showRegionals,
+	showSpecials,
 	hideUnavailable,
 	hideObtained,
-	hideRegionals
+	hideSpecials
 } from '../../redux/actions/visibilityFilters';
 import styled from 'styled-components';
 
@@ -29,10 +29,10 @@ const fetchConfig = async () => {
 };
 
 let FilterSection = ({hideUnavailableProp,
-	                     hideRegionalsProp,
+	                     hideSpecialsProp,
 	                     hideObtainedProp,
 	                     showUnavailableProp,
-	                     showRegionalsProp,
+	                     showSpecialsProp,
 	                     showObtainedProp
                      }) => {
 	const [obtained, setObtained] = useState(
@@ -41,7 +41,7 @@ let FilterSection = ({hideUnavailableProp,
 	const [unavailable, setUnavailable] = useState(
 		true
 	);
-	const [regionals, setRegionals] = useState(
+	const [specials, setSpecials] = useState(
 		true
 	);// True is hidden
 
@@ -51,8 +51,8 @@ let FilterSection = ({hideUnavailableProp,
 			setObtained(!obtained);
 		if (id === 'unavailable')
 			setUnavailable(!unavailable);
-		if (id === 'regionals')
-			setRegionals(!regionals);
+		if (id === 'specials')
+			setSpecials(!specials);
 	}
 
 	useEffect(() => {
@@ -60,7 +60,7 @@ let FilterSection = ({hideUnavailableProp,
 			.then((response) => {
 				setObtained(response.hideObtained);
 				setUnavailable(response.hideUnavailable);
-				setRegionals(response.hideRegionals);
+				setSpecials(response.hideSpecials);
 			})
 	}, []);
 
@@ -70,10 +70,10 @@ let FilterSection = ({hideUnavailableProp,
 		} else {
 			showObtainedProp();
 		}
-		if (regionals) {
-			hideRegionalsProp();
+		if (specials) {
+			hideSpecialsProp();
 		} else {
-			showRegionalsProp();
+			showSpecialsProp();
 		}
 		if (unavailable) {
 			hideUnavailableProp();
@@ -105,12 +105,12 @@ let FilterSection = ({hideUnavailableProp,
 			/>
 		</div>
 		<div>
-			<Label htmlFor="regionals">
-				Hide regionals
+			<Label htmlFor="specials">
+				Hide specials
 			</Label>
 			<input type="checkbox"
-			       id="regionals"
-			       checked={regionals}
+			       id="specials"
+			       checked={specials}
 			       onChange={toggleChange}
 			/>
 		</div>
@@ -124,8 +124,8 @@ const mapDispatchToProps = (dispatch) => ({
 	showObtainedProp: () => {
 		dispatch(showObtained())
 	},
-	showRegionalsProp: () => {
-		dispatch(showRegionals())
+	showSpecialsProp: () => {
+		dispatch(showSpecials())
 	},
 	hideUnavailableProp: () => {
 		dispatch(hideUnavailable())
@@ -133,8 +133,8 @@ const mapDispatchToProps = (dispatch) => ({
 	hideObtainedProp: () => {
 		dispatch(hideObtained())
 	},
-	hideRegionalsProp: () => {
-		dispatch(hideRegionals())
+	hideSpecialsProp: () => {
+		dispatch(hideSpecials())
 	},
 })
 
@@ -145,8 +145,8 @@ export default FilterSection;
 FilterSection.propTypes = {
 	hideUnavailableProp: PropTypes.func,
 	hideObtainedProp: PropTypes.func,
-	hideRegionalsProp: PropTypes.func,
+	hideSpecialsProp: PropTypes.func,
 	showUnavailableProp: PropTypes.func,
 	showObtainedProp: PropTypes.func,
-	showRegionalsProp: PropTypes.func,
+	showSpecialsProp: PropTypes.func,
 };

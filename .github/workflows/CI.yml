@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Checkout
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v4
     # Node install & build
     - name: Node install & build
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: '12.x'
     - run: npm install
     - run: npm run build
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER_URL }}
         username: ${{ secrets.FTP_USER }}

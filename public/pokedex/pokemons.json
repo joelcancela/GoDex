@@ -752,6 +752,7 @@
     768,
     769,
     770,
+    775,
     776,
     777,
     779,
@@ -5040,7 +5041,8 @@
     {
       "id": 800,
       "name": "necrozma",
-      "type": "psychic"
+      "type": "psychic",
+      "special": "Event"
     },
     {
       "id": 801,
@@ -5050,7 +5052,8 @@
     {
       "id": 802,
       "name": "marshadow",
-      "type": "fighting"
+      "type": "fighting",
+      "special": "Event"
     },
     {
       "id": 803,

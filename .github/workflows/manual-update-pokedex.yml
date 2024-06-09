@@ -32,8 +32,6 @@ jobs:
             [1]: https://github.com/peter-evans/create-pull-request
           labels: |
             automated pr
-          assignees: joelcancela
-          reviewers: joelcancela
           draft: false
       - name: Enable Pull Request Automerge
         if: steps.cpr.outputs.pull-request-operation == 'created'

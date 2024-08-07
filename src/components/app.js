@@ -52,7 +52,7 @@ const currentYear = new Date().getFullYear();
 
 const App = () => {
 	return (
-		<>
+		<div className="body-inner">
 			<MainContainer>
 				<Row>
 					<CenterDiv>
@@ -80,7 +80,7 @@ const App = () => {
 				<ARight href="https://github.com/joelcancela/GoDex">
 					<i className="devicon-github-plain"/> GitHub</ARight>
 			</CustomNavbar>
-		</>
+		</div>
 	);
 };
 

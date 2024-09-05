@@ -5417,7 +5417,8 @@
     {
       "id": 874,
       "name": "stonjourner",
-      "type": "rock"
+      "type": "rock",
+      "special": "UK only"
     },
     {
       "id": 875,

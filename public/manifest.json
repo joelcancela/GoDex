@@ -1,0 +1,21 @@
+{
+  "short_name": "GoDex",
+  "name": "My PokemonGo Pokedex",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "img/icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#e61515",
+  "background_color": "#ffffff"
+}

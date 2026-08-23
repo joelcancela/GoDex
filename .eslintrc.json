@@ -1,0 +1,48 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "google"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "babelOptions": {
+            "configFile": "./.babelrc"
+        },
+        "ecmaVersion": 2018,
+        "requireConfigFile": false,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "require-jsdoc": 0,
+        "indent": "off",
+        "no-tabs": "off",
+        "object-curly-spacing": "off",
+        "max-len": "off",
+        "semi": "off",
+        "comma-dangle": "off",
+        "block-spacing": "off",
+        "brace-style": "off",
+        "curly": "off",
+        "no-mixed-spaces-and-tabs": "off"
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "16.8.6"
+        }
+    }
+}

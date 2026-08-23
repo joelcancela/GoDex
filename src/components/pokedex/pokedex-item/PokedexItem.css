@@ -1,0 +1,43 @@
+.pokedexItem {
+    width: 120px;
+    height: 120px;
+    margin: 5px 2px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+
+.pokemonImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pokemonDetails {
+    font-size: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    text-shadow: 0 0 2px #000;
+    letter-spacing: 0.05em;
+    background: #00000017;
+    padding: 1px 1px 1px 3px;
+    line-height: 1em;
+    height: 13px;
+    margin-top: 11px;
+}
+
+.pokemonNumber {
+    float: left;
+    text-align: left;
+    border-bottom-left-radius: 5px;
+}
+
+.pokemonRegion {
+    float: right;
+    text-align: right;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    max-width: 80px;
+    text-overflow: ellipsis;
+    white-space: pre;
+}

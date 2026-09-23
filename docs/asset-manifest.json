@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "./static/css/main.f839979f.css",
-    "main.js": "./static/js/main.c7f48aec.js",
-    "static/css/86.7b9926d6.chunk.css": "./static/css/86.7b9926d6.chunk.css",
+    "main.js": "./static/js/main.fc3a53c3.js",
+    "static/css/86.222cab1c.chunk.css": "./static/css/86.222cab1c.chunk.css",
     "static/js/86.b3d2b953.chunk.js": "./static/js/86.b3d2b953.chunk.js",
     "static/media/pokedex-background.png": "./static/media/pokedex-background.ebeadb613363f9ee4f3d.png",
     "service-worker.js": "./service-worker.js",
     "index.html": "./index.html",
     "main.f839979f.css.map": "./static/css/main.f839979f.css.map",
-    "main.c7f48aec.js.map": "./static/js/main.c7f48aec.js.map",
-    "86.7b9926d6.chunk.css.map": "./static/css/86.7b9926d6.chunk.css.map",
+    "main.fc3a53c3.js.map": "./static/js/main.fc3a53c3.js.map",
+    "86.222cab1c.chunk.css.map": "./static/css/86.222cab1c.chunk.css.map",
     "86.b3d2b953.chunk.js.map": "./static/js/86.b3d2b953.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f839979f.css",
-    "static/js/main.c7f48aec.js"
+    "static/js/main.fc3a53c3.js"
   ]
 }

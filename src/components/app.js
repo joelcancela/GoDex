@@ -1,7 +1,7 @@
 import React, {lazy, Suspense} from 'react';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {Container, Row, Col, Navbar} from 'react-bootstrap';
+import {Container, Navbar} from 'react-bootstrap';
 import rootReducer from './redux/reducers/reducers';
 import Loader from './design/loader';
 import Title from './design/title';
@@ -25,26 +25,45 @@ const SpanWhite = styled.span`
 `;
 
 const PokedexItems = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	margin-bottom: 40px;
+	display: grid;
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+	grid-template-columns: repeat(auto-fill, 120px);
+	grid-auto-rows: 120px;
+	column-gap: 4px;
+	row-gap: 10px;
+	justify-content: space-between;
+	margin-top: 5px;
+	padding-bottom: 8px;
 `;
 
-const CenterDiv = styled.div`
-	margin-left: auto;
-	margin-right: auto;
-	width: auto;
+const TitleGrid = styled.div`
+	display: grid;
+	justify-items: center;
+`;
+
+const FiltersGrid = styled.div`
+	display: grid;
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.5rem;
 `;
 
 const MainContainer = styled(Container)`
-	padding-bottom: 50px;
+	padding-bottom: calc(40px + env(safe-area-inset-bottom));
 	min-height: 100vh;
 `;
 
 const CustomNavbar = styled(Navbar)`
+	height: 40px;
+	align-items: center;
 	padding-left: 1rem;
 	padding-right: 1rem;
+	padding-top: 0;
+	padding-bottom: env(safe-area-inset-bottom);
 `;
 const Pokedex = lazy(() => import('./pokedex/Pokedex'));
 const store = createStore(rootReducer);
@@ -54,20 +73,14 @@ const App = () => {
 	return (
 		<div className="body-inner">
 			<MainContainer>
-				<Row>
-					<CenterDiv>
-						<Title/>
-					</CenterDiv>
-				</Row>
+				<TitleGrid>
+					<Title/>
+				</TitleGrid>
 				<Provider store={store}>
-					<Row>
-						<Col xs="6" lg="6" md="6">
-							<StatsSection/>
-						</Col>
-						<Col xs="6" lg="6" md="6">
-							<FilterSection/>
-						</Col>
-					</Row>
+					<FiltersGrid>
+						<StatsSection/>
+						<FilterSection/>
+					</FiltersGrid>
 					<PokedexItems>
 						<Suspense fallback={<Loader/>}>
 							<Pokedex/>

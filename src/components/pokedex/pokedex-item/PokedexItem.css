@@ -15,7 +15,7 @@
 
 .pokemonDetails {
     font-size: 12px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
     color: white;
     text-shadow: 0 0 2px #000;
     letter-spacing: 0.05em;

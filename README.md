@@ -25,14 +25,10 @@ npm start
 
 ## Deployment
 
-```bash
-npm run build
-```
-
 To build the app directly in the `docs` folder for GitHub Pages:
 
 ```bash
-npm run build:docs
+npm run build
 ```
 
 ## Running the tests

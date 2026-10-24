@@ -641,6 +641,7 @@
     644,
     645,
     646,
+    647,
     648,
     649,
     650,
@@ -892,7 +893,6 @@
     946,
     957,
     958,
-    959,
     960,
     961,
     962,
@@ -920,7 +920,6 @@
     771,
     772,
     773,
-    774,
     778,
     801,
     807,
@@ -945,8 +944,6 @@
     897,
     898,
     902,
-    946,
-    947,
     951,
     952,
     953,
@@ -980,7 +977,22 @@
     1007,
     1008,
     1009,
-    1010
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025
   ],
   "pokemons": [
     {
@@ -1558,7 +1570,7 @@
       "id": 115,
       "name": "kangaskhan",
       "type": "normal",
-      "special": "AU/PPNG"
+      "special": "AU/NZ"
     },
     {
       "id": 116,
@@ -1594,7 +1606,7 @@
       "id": 122,
       "name": "mr-mime",
       "type": "psychic",
-      "special": "EU/TK/ICELAND"
+      "special": "EU"
     },
     {
       "id": 123,
@@ -2056,7 +2068,7 @@
       "id": 214,
       "name": "heracross",
       "type": "bug",
-      "special": "Cen/Sth America"
+      "special": "South USA"
     },
     {
       "id": 215,
@@ -2553,13 +2565,13 @@
       "id": 313,
       "name": "volbeat",
       "type": "bug",
-      "special": "East Hemi"
+      "special": "EU/Asia/AU/NZ"
     },
     {
       "id": 314,
       "name": "illumise",
       "type": "bug",
-      "special": "West Hemi"
+      "special": "NA/SA/AF"
     },
     {
       "id": 315,
@@ -2610,7 +2622,7 @@
       "id": 324,
       "name": "torkoal",
       "type": "fire",
-      "special": "IN/CN/Cen Sth Asia"
+      "special": "South Asia"
     },
     {
       "id": 325,
@@ -2666,25 +2678,25 @@
       "id": 335,
       "name": "zangoose",
       "type": "normal",
-      "special": "East Hemi"
+      "special": "EU/Asia/AU"
     },
     {
       "id": 336,
       "name": "seviper",
       "type": "poison",
-      "special": "West Hemi"
+      "special": "NA/SA/AF"
     },
     {
       "id": 337,
       "name": "lunatone",
       "type": "rock",
-      "special": "East Hemi"
+      "special": "EU/Asia/AU"
     },
     {
       "id": 338,
       "name": "solrock",
       "type": "rock",
-      "special": "West Hemi"
+      "special": "NA/SA/AF"
     },
     {
       "id": 339,
@@ -2780,7 +2792,7 @@
       "id": 357,
       "name": "tropius",
       "type": "grass",
-      "special": "AF/Mid East"
+      "special": "AF/Medit"
     },
     {
       "id": 358,
@@ -2841,7 +2853,7 @@
       "id": 369,
       "name": "relicanth",
       "type": "water",
-      "special": "NZ/Fiji"
+      "special": "NZ"
     },
     {
       "id": 370,
@@ -3277,7 +3289,7 @@
       "id": 455,
       "name": "carnivine",
       "type": "grass",
-      "special": "FL/GE/SC"
+      "special": "FL/SC/USA"
     },
     {
       "id": 456,
@@ -3403,7 +3415,7 @@
       "id": 480,
       "name": "uxie",
       "type": "psychic",
-      "special": "Asia Pac"
+      "special": "SA"
     },
     {
       "id": 481,
@@ -3415,7 +3427,7 @@
       "id": 482,
       "name": "azelf",
       "type": "psychic",
-      "special": "NA/SA/Groen"
+      "special": "Asia Pac"
     },
     {
       "id": 483,
@@ -3702,13 +3714,13 @@
       "id": 538,
       "name": "throh",
       "type": "fighting",
-      "special": "West Hemi"
+      "special": "NA/SA/AF"
     },
     {
       "id": 539,
       "name": "sawk",
       "type": "fighting",
-      "special": "East Hemi"
+      "special": "EU/Asia/AU"
     },
     {
       "id": 540,
@@ -3795,7 +3807,7 @@
       "id": 556,
       "name": "maractus",
       "type": "grass",
-      "special": "Cen-Sth America"
+      "special": "South America"
     },
     {
       "id": 557,
@@ -4146,8 +4158,7 @@
     {
       "id": 626,
       "name": "bouffalant",
-      "type": "normal",
-      "special": "East USA"
+      "type": "normal"
     },
     {
       "id": 627,
@@ -4173,13 +4184,13 @@
       "id": 631,
       "name": "heatmor",
       "type": "fire",
-      "special": "West Hemi"
+      "special": "NA/SA/AF"
     },
     {
       "id": 632,
       "name": "durant",
       "type": "bug",
-      "special": "East Hemi"
+      "special": "EU/Asia/AU"
     },
     {
       "id": 633,
@@ -4254,8 +4265,7 @@
     {
       "id": 647,
       "name": "keldeo-ordinary",
-      "type": "water",
-      "special": "Event"
+      "type": "water"
     },
     {
       "id": 648,
@@ -4380,14 +4390,12 @@
     {
       "id": 672,
       "name": "skiddo",
-      "type": "grass",
-      "special": "Event"
+      "type": "grass"
     },
     {
       "id": 673,
       "name": "gogoat",
-      "type": "grass",
-      "special": "Event"
+      "type": "grass"
     },
     {
       "id": 674,
@@ -4527,8 +4535,7 @@
     {
       "id": 701,
       "name": "hawlucha",
-      "type": "fighting",
-      "special": "Mexico"
+      "type": "fighting"
     },
     {
       "id": 702,
@@ -4618,8 +4625,7 @@
     {
       "id": 719,
       "name": "diancie",
-      "type": "rock",
-      "special": "Event"
+      "type": "rock"
     },
     {
       "id": 720,
@@ -4844,8 +4850,7 @@
     {
       "id": 764,
       "name": "comfey",
-      "type": "fairy",
-      "special": "Hawaï"
+      "type": "fairy"
     },
     {
       "id": 765,
@@ -4900,8 +4905,7 @@
     {
       "id": 775,
       "name": "komala",
-      "type": "normal",
-      "special": "Event"
+      "type": "normal"
     },
     {
       "id": 776,
@@ -5011,8 +5015,7 @@
     {
       "id": 797,
       "name": "celesteela",
-      "type": "steel",
-      "special": "South Hemi"
+      "type": "steel"
     },
     {
       "id": 798,
@@ -5027,8 +5030,7 @@
     {
       "id": 800,
       "name": "necrozma",
-      "type": "psychic",
-      "special": "Event"
+      "type": "psychic"
     },
     {
       "id": 801,
@@ -5038,8 +5040,7 @@
     {
       "id": 802,
       "name": "marshadow",
-      "type": "fighting",
-      "special": "Event"
+      "type": "fighting"
     },
     {
       "id": 803,
@@ -5399,8 +5400,7 @@
     {
       "id": 874,
       "name": "stonjourner",
-      "type": "rock",
-      "special": "UK only"
+      "type": "rock"
     },
     {
       "id": 875,
@@ -5524,39 +5524,38 @@
     },
     {
       "id": 899,
-      "name": "cerbyllin",
+      "name": "wyrdeer",
       "type": "normal"
     },
     {
       "id": 900,
-      "name": "hachécateur",
+      "name": "kleavor",
       "type": "bug"
     },
     {
       "id": 901,
-      "name": "ursaking",
+      "name": "ursaluna",
       "type": "ground"
     },
     {
       "id": 902,
-      "name": "paragruel",
+      "name": "basculegion-male",
       "type": "water"
     },
     {
       "id": 903,
-      "name": "farfurex",
+      "name": "sneasler",
       "type": "fighting"
     },
     {
       "id": 904,
-      "name": "qwilpik",
+      "name": "overqwil",
       "type": "dark"
     },
     {
       "id": 905,
-      "name": "amovénus",
-      "type": "fairy",
-      "special": "Event"
+      "name": "enamorus-incarnate",
+      "type": "fairy"
     },
     {
       "id": 906,
@@ -6026,14 +6025,12 @@
     {
       "id": 999,
       "name": "gimmighoul",
-      "type": "ghost",
-      "special": "Game transfer"
+      "type": "ghost"
     },
     {
       "id": 1000,
       "name": "gholdengo",
-      "type": "steel",
-      "special": "Game transfer"
+      "type": "steel"
     },
     {
       "id": 1001,
@@ -6084,6 +6081,81 @@
       "id": 1010,
       "name": "iron-leaves",
       "type": "grass"
+    },
+    {
+      "id": 1011,
+      "name": "dipplin",
+      "type": "grass"
+    },
+    {
+      "id": 1012,
+      "name": "poltchageist",
+      "type": "grass"
+    },
+    {
+      "id": 1013,
+      "name": "sinistcha",
+      "type": "grass"
+    },
+    {
+      "id": 1014,
+      "name": "okidogi",
+      "type": "poison"
+    },
+    {
+      "id": 1015,
+      "name": "munkidori",
+      "type": "poison"
+    },
+    {
+      "id": 1016,
+      "name": "fezandipiti",
+      "type": "poison"
+    },
+    {
+      "id": 1017,
+      "name": "ogerpon",
+      "type": "grass"
+    },
+    {
+      "id": 1018,
+      "name": "archaludon",
+      "type": "steel"
+    },
+    {
+      "id": 1019,
+      "name": "hydrapple",
+      "type": "grass"
+    },
+    {
+      "id": 1020,
+      "name": "gouging-fire",
+      "type": "fire"
+    },
+    {
+      "id": 1021,
+      "name": "raging-bolt",
+      "type": "electric"
+    },
+    {
+      "id": 1022,
+      "name": "iron-boulder",
+      "type": "rock"
+    },
+    {
+      "id": 1023,
+      "name": "iron-crown",
+      "type": "steel"
+    },
+    {
+      "id": 1024,
+      "name": "terapagos",
+      "type": "normal"
+    },
+    {
+      "id": 1025,
+      "name": "pecharunt",
+      "type": "poison"
     }
   ]
 }

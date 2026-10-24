@@ -5085,5 +5085,80 @@
     "id": 1010,
     "name": "iron-leaves",
     "type": "grass"
+  },
+  {
+    "id": 1011,
+    "name": "dipplin",
+    "type": "grass"
+  },
+  {
+    "id": 1012,
+    "name": "poltchageist",
+    "type": "grass"
+  },
+  {
+    "id": 1013,
+    "name": "sinistcha",
+    "type": "grass"
+  },
+  {
+    "id": 1014,
+    "name": "okidogi",
+    "type": "poison"
+  },
+  {
+    "id": 1015,
+    "name": "munkidori",
+    "type": "poison"
+  },
+  {
+    "id": 1016,
+    "name": "fezandipiti",
+    "type": "poison"
+  },
+  {
+    "id": 1017,
+    "name": "ogerpon",
+    "type": "grass"
+  },
+  {
+    "id": 1018,
+    "name": "archaludon",
+    "type": "steel"
+  },
+  {
+    "id": 1019,
+    "name": "hydrapple",
+    "type": "grass"
+  },
+  {
+    "id": 1020,
+    "name": "gouging-fire",
+    "type": "fire"
+  },
+  {
+    "id": 1021,
+    "name": "raging-bolt",
+    "type": "electric"
+  },
+  {
+    "id": 1022,
+    "name": "iron-boulder",
+    "type": "rock"
+  },
+  {
+    "id": 1023,
+    "name": "iron-crown",
+    "type": "steel"
+  },
+  {
+    "id": 1024,
+    "name": "terapagos",
+    "type": "normal"
+  },
+  {
+    "id": 1025,
+    "name": "pecharunt",
+    "type": "poison"
   }
 ]

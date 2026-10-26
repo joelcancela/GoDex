@@ -11,17 +11,6 @@ import styled from 'styled-components';
 
 const ARight = styled.a`
 	margin-left: auto;
-	color: white;
-	text-decoration: none;
-
-	&:hover {
-		color: white;
-		text-decoration: underline;
-	}
-`;
-
-const SpanWhite = styled.span`
-	color: white;
 `;
 
 const PokedexItems = styled.div`
@@ -89,8 +78,8 @@ const App = () => {
 				</Provider>
 			</MainContainer>
 			<CustomNavbar fixed="bottom" bg="dark">
-				<SpanWhite>GoDex - 2019 - {currentYear}</SpanWhite>
-				<ARight href="https://github.com/joelcancela/GoDex">
+				<span className="sf-link-caps">GoDex - 2019 - {currentYear}</span>
+				<ARight className="sf-link-caps" href="https://github.com/joelcancela/GoDex">
 					<i className="devicon-github-plain"/> GitHub</ARight>
 			</CustomNavbar>
 		</div>

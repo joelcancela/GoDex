@@ -1,0 +1,398 @@
+/*!
+ * SkyFox UI - thème Cyberpunk TCG (turquoise / jaune / noir), à charger APRÈS Bootstrap 4.x ou 5.x.
+ * Tokens relevés sur cyberpunktcg.com. Cible uniquement les classes communes à BS4 et BS5.
+ *
+ * Organisation du fichier :
+ *   1. @font-face + tokens (:root)      5. Formulaires, tableaux, badges
+ *   2. Base (body, titres, liens)       6. Listes, dropdowns, pagination, alertes
+ *   3. Boutons                          7. Utilitaires .sf-* (hors Bootstrap)
+ *   4. Panneaux HUD, navbar, onglets    8. Animations / reduced-motion
+ *
+ * Conventions :
+ *   - Les couleurs/ombres se lisent dans les tokens --sf-* : ne jamais recopier les valeurs ailleurs.
+ *   - Les !important ne servent qu'à battre des utilitaires Bootstrap (.bg-*, .nav-link...) ; chacun est commenté.
+ *   - La source de vérité est ce fichier ; chaque projet en a une copie à resynchroniser (voir README).
+ *   - clip-path rogne border/box-shadow/outline le long des coins coupés : voir les contournements
+ *     commentés (.btn-outline-*, .sf-chip, rarity-badge...).
+ */
+
+/* Chemins relatifs au fichier CSS : le dossier fonts/ doit rester à côté de skyfox-ui.css. */
+@font-face { font-family: "Blender Pro"; src: url("fonts/blender-pro-book.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Blender Pro"; src: url("fonts/blender-pro-medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Blender Pro"; src: url("fonts/blender-pro-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Refinery 25"; src: url("fonts/refinery-25-semibold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+
+:root {
+  /* Palette de marque : jaune = accent/titres, turquoise = action principale/focus */
+  --sf-yellow: #fcee0a;
+  --sf-turquoise: #00f0ff;
+  /* Surfaces : fond de page, carte opaque (modales, menus), panneau translucide, gris de remplissage */
+  --sf-black: #00000f;
+  --sf-bg: #00000f;
+  --sf-card: #08081a;
+  --sf-panel: rgba(10, 12, 22, .78);
+  --sf-muted-bg: #14141f;
+  /* Bordures : neutre (tableaux...), champs de formulaire, contour "HUD" turquoise discret des panneaux */
+  --sf-border: #202a33;
+  --sf-border-input: #1d242b;
+  --sf-border-hud: rgba(0, 240, 255, .18);
+  /* Fond des barres fixes (navbar, .sf-footer) : noir translucide */
+  --sf-bar: rgba(0, 0, 15, .88);
+  /* Texte : plein, secondaire (nav), atténu (placeholders, inactif), très faible (désactivé), gris neutre */
+  --sf-fg: #fff;
+  --sf-fg-secondary: rgba(255, 255, 255, .8);
+  --sf-fg-dim: rgba(255, 255, 255, .5);
+  --sf-fg-faint: rgba(255, 255, 255, .3);
+  --sf-muted: #9ba3ae;
+  --sf-danger: #f75049;
+  --sf-success: #10b981;
+  /* Couleurs de raretés du jeu : réservées aux classes .sf-rarity-*, pas à l'UI générale */
+  --sf-gold: #f0b537;
+  --sf-blue-light: #3da4e8;
+  --sf-blue-deep: #235ba4;
+  /* Taille du coin coupé des boutons ; redéfinie localement (ex. .btn-sm) */
+  --sf-cut: 15px;
+  /* Halo des panneaux : liseré intérieur + lueur turquoise + lueur jaune diffuse ; -hover = plus intense */
+  --sf-glow: 0 0 0 1px rgba(0, 240, 255, .2) inset, 0 0 26px rgba(0, 240, 255, .16), 0 0 52px rgba(252, 238, 10, .06);
+  --sf-glow-hover: 0 0 0 1px rgba(0, 240, 255, .4) inset, 0 0 32px rgba(0, 240, 255, .28), 0 0 52px rgba(252, 238, 10, .1);
+  --sf-hud-border: 1px solid var(--sf-border-hud);
+  /* Display (Refinery 25) = titres uniquement ; Blender Pro = tout le reste */
+  --sf-font-display: "Refinery 25", "Blender Pro", system-ui, sans-serif;
+  --sf-font: "Blender Pro", system-ui, sans-serif;
+
+  /* Variables Bootstrap 5 : sans effet en BS4 (pas de variables CSS), donc inoffensives */
+  --bs-body-bg: var(--sf-bg);
+  --bs-body-color: var(--sf-fg);
+  --bs-border-color: var(--sf-border);
+  --bs-link-color: var(--sf-turquoise);
+  --bs-link-hover-color: var(--sf-yellow);
+  --bs-primary: var(--sf-turquoise);
+  --bs-secondary: var(--sf-yellow);
+  --bs-font-sans-serif: var(--sf-font);
+}
+
+/* Coin inférieur droit coupé (signature du site). Utiliser .sf-cut sur tout élément hors .btn.
+   Attention : clip-path rogne aussi border/box-shadow/outline le long de la diagonale. */
+.sf-cut, .btn {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--sf-cut)), calc(100% - var(--sf-cut)) 100%, 0 100%);
+}
+.btn-sm, .btn-group-sm > .btn { --sf-cut: 10px; }
+
+/* Base */
+html { color-scheme: dark; } /* scrollbars, <select> et contrôles natifs en thème sombre */
+/* 3 calques de fond : lignes de balayage (.03), halo turquoise en haut à droite, halo jaune en bas à gauche, puis couleur unie.
+   Un projet qui veut son propre fond doit redéclarer tout `background` (la forme courte réinitialise les calques). */
+body {
+  background:
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, .03) 0, rgba(255, 255, 255, .03) 1px, transparent 3px, transparent 6px),
+    radial-gradient(900px 500px at 85% -10%, rgba(0, 240, 255, .10), transparent 60%),
+    radial-gradient(700px 400px at 0% 100%, rgba(252, 238, 10, .05), transparent 60%),
+    var(--sf-bg);
+  background-attachment: fixed;
+  color: var(--sf-fg);
+  font-family: var(--sf-font);
+  font-weight: 400;
+}
+/* Tous les titres : police display (Refinery 25), majuscules. Si les lettres semblent désalignées sur un petit titre,
+   forcer `font-family: var(--sf-font)` localement (cas des titres de tuiles et sous-titres du portfolio). */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--sf-font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--sf-fg);
+}
+h1, .h1 { color: var(--sf-yellow); letter-spacing: .08em; }
+a { color: var(--sf-turquoise); transition: color .15s; }
+a:hover { color: var(--sf-yellow); text-decoration: none; }
+hr { border-color: var(--sf-border); opacity: 1; }
+.text-muted { color: var(--sf-muted) !important; }
+::selection { background: var(--sf-yellow); color: #000; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--sf-black); }
+::-webkit-scrollbar-thumb { background: var(--sf-border); }
+::-webkit-scrollbar-thumb:hover { background: var(--sf-turquoise); }
+
+/* Boutons (équivalent .btn-cyber du site) */
+.btn {
+  font-family: var(--sf-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  border: 0;
+  border-radius: 0;
+  padding-bottom: calc(.375rem + 4px); /* compense visuellement le coin coupé : le texte paraît sinon trop bas */
+  transition: color .25s, background .25s;
+}
+.btn:hover { animation: sf-glitch-shake .25s ease 1; } /* léger tremblement au survol, désactivé par prefers-reduced-motion */
+/* Le focus passe par outline (jaune) car box-shadow serait rogné par le clip-path */
+.btn:focus, .btn.focus, .btn:focus-visible { box-shadow: none; outline: 2px solid var(--sf-yellow); outline-offset: 2px; }
+/* Variantes : primary/info = turquoise, secondary/warning = jaune (les noms diffèrent entre BS4 et BS5, on couvre les deux).
+   Au survol : fond quasi transparent + texte coloré (inversion du plein). */
+.btn-primary, .btn-info { background: var(--sf-turquoise); color: var(--sf-black); }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
+.btn-info:hover, .btn-info:focus, .btn-info:active { background: rgba(0, 240, 255, .12); color: var(--sf-turquoise); }
+.btn-secondary, .btn-warning { background: var(--sf-yellow); color: var(--sf-black); }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active,
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active { background: rgba(252, 238, 10, .12); color: var(--sf-yellow); }
+.btn-dark, .btn-light { background: rgba(255, 255, 255, .08); color: var(--sf-fg); }
+.btn-dark:hover, .btn-light:hover { background: rgba(255, 255, 255, .16); color: var(--sf-fg); }
+.btn-danger { background: var(--sf-danger); color: #fff; }
+.btn-danger:hover { background: rgba(247, 80, 73, .15); color: var(--sf-danger); }
+.btn-success { background: var(--sf-success); color: #000; }
+.btn-success:hover { background: rgba(16, 185, 129, .15); color: var(--sf-success); }
+.btn-outline-primary, .btn-outline-info, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark {
+  --sf-oc: var(--sf-turquoise); /* "outline color" : couleur du contour ET du texte, surchargée pour secondary/warning */
+  position: relative; isolation: isolate; box-shadow: none; /* isolation: le ::before z-index:-1 reste au-dessus du fond du bouton */
+  background: var(--sf-oc); color: var(--sf-oc);
+}
+.btn-outline-secondary, .btn-outline-warning { --sf-oc: var(--sf-yellow); }
+/* Contour = fond coloré + ::before noir inset de 1px (un box-shadow/border serait rogné par le clip-path).
+   Le "+ 1px" dans le polygone recale la diagonale intérieure pour que le trait garde ~1px d'épaisseur. */
+.btn-outline-primary::before, .btn-outline-info::before, .btn-outline-secondary::before,
+.btn-outline-warning::before, .btn-outline-light::before, .btn-outline-dark::before {
+  content: ""; position: absolute; inset: 1px; z-index: -1; background: var(--sf-black);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--sf-cut) + 1px), calc(100% - var(--sf-cut) + 1px) 100%, 0 100%);
+  transition: opacity .25s;
+}
+.btn-outline-primary:hover, .btn-outline-info:hover, .btn-outline-secondary:hover,
+.btn-outline-warning:hover, .btn-outline-light:hover, .btn-outline-dark:hover { background: var(--sf-oc); color: var(--sf-black); }
+.btn-outline-primary:hover::before, .btn-outline-info:hover::before, .btn-outline-secondary:hover::before,
+.btn-outline-warning:hover::before, .btn-outline-light:hover::before, .btn-outline-dark:hover::before { opacity: 0; }
+.btn.disabled, .btn:disabled { background: rgba(255, 255, 255, .14); color: var(--sf-fg-dim); box-shadow: none; opacity: 1; animation: none; }
+.btn-link { clip-path: none; background: transparent; color: var(--sf-turquoise); padding-bottom: .375rem; }
+.btn-link:hover { background: transparent; color: var(--sf-yellow); animation: none; }
+
+/* Panneaux "HUD" : cartes, modales, popovers, .jumbotron (BS4 only, restylé ici), .sf-panel.
+   `.card:not(.interactive)` : exclut les cartes holographiques de PokeTCGSky (.card.interactive), dont le flou, la bordure
+   et le fond casseraient l'effet 3D et le zoom en position:fixed ; elles reçoivent leur contour sur un conteneur parent. */
+.card:not(.interactive), .modal-content, .popover, .sf-panel, .jumbotron {
+  background: var(--sf-panel);
+  border: var(--sf-hud-border);
+  border-radius: 0;
+  color: var(--sf-fg);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.card:not(.interactive), .sf-panel, .jumbotron { box-shadow: var(--sf-glow); }
+/* Carte-lien (a.card) ou .card-hover : se soulève et s'illumine au survol */
+a.card, .card-hover { transition: transform .15s, border-color .15s, box-shadow .25s; }
+a.card:hover, .card-hover:hover, .card.sf-hover:hover {
+  transform: translateY(-3px); border-color: var(--sf-turquoise);
+  box-shadow: var(--sf-glow-hover);
+}
+.card-header, .card-footer { background: rgba(255, 255, 255, .03); border-color: var(--sf-border-hud); border-radius: 0; }
+.card-header { font-family: var(--sf-font-display); text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--sf-yellow); }
+.card-img-top, .card-img-bottom, .card-img { border-radius: 0; }
+.card-title { color: var(--sf-fg); }
+.modal-content { background: var(--sf-card); border-color: var(--sf-turquoise); }
+.modal-header, .modal-footer { border-color: var(--sf-border-hud); }
+.modal-header { border-bottom: 1px solid var(--sf-yellow); }
+.modal-backdrop { background: var(--sf-black); }
+.close, .btn-close { color: var(--sf-yellow); text-shadow: none; opacity: 1; cursor: pointer; } /* cursor : un <a class="close"> sans href aurait le curseur par défaut */
+/* BS5 : la croix est un SVG noir en background ; invert -> blanc puis sepia/hue-rotate -> jaune (BS4 utilise la couleur du texte) */
+.btn-close { filter: invert(1) sepia(1) saturate(8) hue-rotate(10deg); }
+.popover-body { color: var(--sf-fg); }
+.popover-header { background: rgba(255, 255, 255, .04); color: var(--sf-yellow); border-color: var(--sf-border-hud); font-family: var(--sf-font-display); }
+
+/* Navbar. !important : Bootstrap impose .bg-dark/.bg-light (et .navbar-dark) avec !important sur la navbar. */
+.navbar {
+  background: var(--sf-bar) !important;
+  border-bottom: 1px solid var(--sf-border-hud);
+  box-shadow: 0 1px 0 rgba(252, 238, 10, .5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+/* .bg-dark/.bg-light (règle de badges plus bas, aussi en !important) battraient .navbar : spécificité à 2 classes pour garder le fond de la lib. */
+.navbar.bg-dark, .navbar.bg-light { background: var(--sf-bar) !important; }
+.navbar-brand { font-family: var(--sf-font-display); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: var(--sf-yellow) !important; }
+.navbar .nav-link, .navbar-nav .nav-link { /* !important : battre .navbar-dark .nav-link / .navbar-light .nav-link */
+  color: var(--sf-fg-secondary) !important; text-transform: uppercase; font-weight: 700; letter-spacing: .06em;
+  border-bottom: 2px solid transparent;
+}
+.navbar .nav-link:hover, .navbar .nav-link.active, .navbar .active > .nav-link { color: var(--sf-yellow) !important; border-bottom-color: var(--sf-yellow); }
+.navbar-toggler { border-color: var(--sf-yellow); border-radius: 0; }
+/* Icône hamburger jaune : SVG explicite (un filtre sur l'icône blanche de Bootstrap rendrait du noir).
+   La variable --bs-navbar-toggler-icon-bg couvre BS5 ; background-image direct couvre BS4. */
+.navbar .navbar-toggler-icon {
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23fcee0a' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
+/* Onglets / pills (My Decks | Community Decks | ...) */
+.nav-tabs { border-bottom: 1px solid var(--sf-border); }
+.nav-tabs .nav-link, .nav-pills .nav-link {
+  border: 0; border-radius: 0; background: transparent; color: var(--sf-fg-dim);
+  text-transform: uppercase; font-weight: 700; letter-spacing: .06em;
+  border-bottom: 2px solid transparent;
+}
+.nav-tabs .nav-link:hover, .nav-pills .nav-link:hover { color: var(--sf-fg); border-bottom-color: var(--sf-turquoise); }
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link,
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: var(--sf-yellow); background: transparent; border-bottom-color: var(--sf-yellow);
+}
+.nav-tabs .nav-link.disabled { color: var(--sf-fg-faint); }
+
+/* Formulaires. Focus : anneau en deux box-shadow (2px noir puis 2px turquoise) pour imiter le "ring-offset" du site. */
+.form-control, .form-select, .custom-select, .input-group-text {
+  background: var(--sf-black); color: var(--sf-fg);
+  border: 1px solid var(--sf-border-input); border-radius: 0;
+}
+.form-control::placeholder { color: var(--sf-fg-dim); }
+.form-control:focus, .form-select:focus, .custom-select:focus {
+  background: var(--sf-black); color: #fff;
+  border-color: var(--sf-border-input); outline: 0;
+  box-shadow: 0 0 0 2px var(--sf-black), 0 0 0 4px var(--sf-turquoise);
+}
+/* Les <select> ont une bordure turquoise (comme sur le site). `select option` : sans fond explicite, la liste native
+   s'ouvre blanche sur Windows et le texte blanc devient illisible ; color-scheme: dark équilibre les autres OS. */
+.form-select, .custom-select, select.form-control { border-color: var(--sf-turquoise); font-weight: 600; color-scheme: dark; }
+select option, select optgroup { background: var(--sf-black); color: var(--sf-fg); }
+.form-control:disabled, .form-control[readonly] { background: var(--sf-muted-bg); opacity: .6; }
+.input-group-text { background: var(--sf-muted-bg); color: var(--sf-yellow); }
+.form-check-input, .custom-control-label::before { background-color: rgba(255, 255, 255, .06); border-color: var(--sf-border); border-radius: 0; }
+.form-check-input:checked, .custom-control-input:checked ~ .custom-control-label::before { background-color: var(--sf-turquoise); border-color: var(--sf-turquoise); }
+.form-check-input:focus { box-shadow: 0 0 0 .2rem rgba(0, 240, 255, .3); border-color: var(--sf-turquoise); }
+.form-range::-webkit-slider-thumb { background: var(--sf-yellow); }
+label, .form-label {
+  font-family: var(--sf-font); font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--sf-muted);
+}
+
+/* Tableaux : en BS5 les couleurs passent par des variables --bs-table-*, en BS4 par les règles .table td/th ci-dessous. */
+.table { color: var(--sf-fg); border-color: var(--sf-border); --bs-table-bg: transparent; --bs-table-color: var(--sf-fg); --bs-table-border-color: var(--sf-border); }
+.table th { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--sf-yellow); border-color: var(--sf-border); background: rgba(0, 0, 15, .6); }
+.table td { border-color: var(--sf-border); }
+.table-striped tbody tr:nth-of-type(odd) { background: rgba(255, 255, 255, .025); color: var(--sf-fg); }
+.table-hover tbody tr:hover { background: rgba(0, 240, 255, .08); color: #fff; }
+
+/* Badges et utilitaires de couleur. !important : BS4 (.badge-*) et BS5 (.bg-*, .text-*) les posent avec !important.
+   Mapping : primary/info -> turquoise, secondary/warning -> jaune, dark/light -> gris sombre. */
+.badge { border-radius: 0; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.badge-primary, .badge-info, .bg-primary, .bg-info { background: var(--sf-turquoise) !important; color: var(--sf-black) !important; }
+.badge-secondary, .badge-warning, .bg-secondary, .bg-warning { background: var(--sf-yellow) !important; color: var(--sf-black) !important; }
+.badge-dark, .badge-light, .bg-dark, .bg-light { background: var(--sf-muted-bg) !important; color: var(--sf-fg) !important; }
+.text-primary, .text-info { color: var(--sf-turquoise) !important; }
+.text-secondary, .text-warning { color: var(--sf-yellow) !important; }
+.border-primary, .border-info { border-color: var(--sf-turquoise) !important; }
+.border-secondary, .border-warning { border-color: var(--sf-yellow) !important; }
+
+/* Listes, dropdowns */
+.list-group-item { background: var(--sf-panel); color: var(--sf-fg); border-color: var(--sf-border); border-radius: 0; }
+.list-group-item-action:hover, .list-group-item-action:focus { background: rgba(0, 240, 255, .08); color: var(--sf-yellow); }
+.list-group-item.active { background: var(--sf-turquoise); border-color: var(--sf-turquoise); color: var(--sf-black); }
+.dropdown-menu { background: var(--sf-card); border: 1px solid var(--sf-border-hud); border-top: 2px solid var(--sf-yellow); border-radius: 0; padding: 0; }
+.dropdown-item { color: var(--sf-fg-secondary); text-transform: uppercase; font-weight: 700; letter-spacing: .04em; }
+.dropdown-item:hover, .dropdown-item:focus, .dropdown-item.active { background: rgba(0, 240, 255, .12); color: var(--sf-turquoise); }
+.dropdown-divider { border-color: var(--sf-border); }
+.dropdown-header { color: var(--sf-yellow); font-family: var(--sf-font-display); letter-spacing: .08em; text-transform: uppercase; }
+
+/* Pagination. `border-radius: 0 !important` : BS5 applique des rayons par :first-child/:last-child plus spécifiques. */
+.pagination { gap: .45rem; }
+.page-link { min-width: 2.35rem; text-align: center; background: var(--sf-panel); border-color: var(--sf-border); color: var(--sf-fg); border-radius: 0 !important; font-weight: 700; }
+.page-link:hover { background: rgba(0, 240, 255, .08); color: var(--sf-yellow); border-color: var(--sf-turquoise); }
+.page-item.active .page-link { background: var(--sf-turquoise); border-color: var(--sf-turquoise); color: var(--sf-black); }
+.page-item.disabled .page-link { background: transparent; color: var(--sf-fg-dim); border-color: var(--sf-border); }
+
+/* Alertes, progress, breadcrumb, tooltips */
+.alert { border-radius: 0; border: 1px solid var(--sf-border-hud); border-left: 3px solid var(--sf-turquoise); background: var(--sf-panel); color: var(--sf-fg); }
+.alert-warning { border-left-color: var(--sf-yellow); }
+.alert-danger { border-left-color: var(--sf-danger); }
+.alert-success { border-left-color: var(--sf-success); }
+.progress { background: rgba(255, 255, 255, .06); border-radius: 0; }
+.progress-bar { background: linear-gradient(90deg, var(--sf-turquoise), var(--sf-yellow)); color: var(--sf-black); }
+.breadcrumb { background: transparent; }
+.breadcrumb-item, .breadcrumb-item.active { color: var(--sf-fg-dim); text-transform: uppercase; letter-spacing: .06em; }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--sf-yellow); }
+.tooltip-inner { background: var(--sf-yellow); color: var(--sf-black); border-radius: 0; font-weight: 700; }
+
+/* Utilitaires SkyFox : classes propres à la lib, absentes de Bootstrap. */
+.sf-glow { box-shadow: var(--sf-glow); }
+.sf-label { font-size: .7rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--sf-muted); }
+.sf-label-xs { font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--sf-muted); }
+/* Texte blanc cerné de noir (lisible sur image) ; le stroke est dessiné derrière le remplissage */
+.sf-text-outline { color: #fff; -webkit-text-stroke: 3px #000; paint-order: stroke fill; text-shadow: 0 0 2px #000; }
+/* Lien/texte de pied de page : petit, majuscule, jaune au survol */
+.sf-link-caps { color: var(--sf-fg-secondary); font-family: var(--sf-font); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
+a.sf-link-caps:hover { color: var(--sf-yellow); text-decoration: none; }
+.sf-dot { display: inline-block; width: 8px; height: 8px; border-radius: 9999px; background: var(--sf-turquoise); }
+.sf-title-bar { border-left: 4px solid var(--sf-yellow); padding-left: .75rem; }
+/* Bloc encadré discret : fin contour HUD, liseré jaune à gauche, fond très légèrement éclairci (mentions légales, encarts) */
+.sf-box { border: var(--sf-hud-border); border-left: 3px solid var(--sf-yellow); border-radius: 0; background: rgba(255, 255, 255, .03); padding: 1rem 1.25rem; }
+/* Pied de page : même fond que la navbar + filet supérieur. !important comme .navbar, pour battre un éventuel .bg-dark. */
+.sf-footer { background: var(--sf-bar) !important; border-top: var(--sf-hud-border); }
+/* Mot mis en avant dans un titre ou une marque (ex. "Sky" de Yu-Gi-Oh!Sky) */
+.sf-accent { color: var(--sf-turquoise); }
+.sf-tag { display: inline-block; padding: .1rem .5rem; background: var(--sf-turquoise); color: var(--sf-black); font-weight: 700; text-transform: uppercase; font-size: .75rem; letter-spacing: .08em; }
+.sf-scanlines { position: relative; }
+.sf-scanlines::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35; mix-blend-mode: overlay;
+  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .035), rgba(255, 255, 255, .035) 1px, transparent 3px, transparent 6px);
+}
+/* Carte HUD : tuile = .sf-card > .sf-card__media + .sf-card__body (équivalent .hud-panel .hud-glow du site).
+   overflow:hidden + backdrop-filter : ne pas l'utiliser autour d'éléments position:fixed ou de popups (ils seraient rognés/recadrés). */
+.sf-card {
+  position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%;
+  background: var(--sf-panel); border: var(--sf-hud-border); border-radius: 0; color: var(--sf-fg);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: var(--sf-glow);
+  transition: border-color .15s, box-shadow .25s;
+}
+.sf-card:hover { border-color: var(--sf-turquoise); box-shadow: var(--sf-glow-hover); }
+.sf-card__media { position: relative; overflow: hidden; background: rgba(0, 0, 15, .4); }
+.sf-card__media img { display: block; width: 100%; transition: transform .3s; }
+.sf-card:hover .sf-card__media img { transform: scale(1.05); }
+.sf-card__media::before { /* scanbeam : bande lumineuse qui balaie l'image (animée via `top`, voir @keyframes sf-scanline) */
+  content: ""; position: absolute; left: 0; right: 0; top: -220px; height: 220px; z-index: 1; pointer-events: none;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 240, 255, .12) 45%, transparent 100%);
+  animation: sf-scanline 6.5s linear infinite;
+}
+.sf-card__media::after { /* scanlines : fines lignes horizontales en mix-blend-mode overlay (réutilisé par .sf-scanlines) */
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .35; mix-blend-mode: overlay;
+  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .035), rgba(255, 255, 255, .035) 1px, transparent 3px, transparent 6px);
+}
+.sf-card__body { display: flex; flex-direction: column; flex: 1; padding: .75rem 1rem; }
+.sf-card__title { font-weight: 700; color: #fff; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Bouton filtre à bascule (.sf-filter + aria-pressed / .active) */
+.sf-filter {
+  display: inline-flex; align-items: center; gap: .5rem; padding: .4rem .8rem; background: transparent; cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, .14); border-radius: 0; color: var(--sf-fg-dim);
+  font-family: var(--sf-font); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  transition: border-color .15s, color .15s;
+}
+.sf-filter:hover { border-color: rgba(0, 240, 255, .55); color: var(--sf-fg); }
+.sf-filter[aria-pressed="true"], .sf-filter.active { border-color: var(--sf-turquoise); color: var(--sf-turquoise); }
+.sf-filter:focus-visible { outline: 2px solid var(--sf-turquoise); outline-offset: 2px; }
+
+/* Chip "notch" (coin haut-droit coupé). Structure obligatoire : <span class="sf-chip-wrap"><span class="sf-chip">..</span></span>.
+   Le contour de 1.5px est un drop-shadow sur le WRAPPER : sur l'élément clippé lui-même, le clip-path le rognerait.
+   Couleur via --chip-color (style="--chip-color: var(--sf-yellow)") ; .sf-chip-filled = chip plein au lieu de contour. */
+.sf-chip-wrap {
+  --chip-color: var(--sf-turquoise); display: inline-flex;
+  filter: drop-shadow(1.5px 0 0 var(--chip-color)) drop-shadow(-1.5px 0 0 var(--chip-color)) drop-shadow(0 1.5px 0 var(--chip-color)) drop-shadow(0 -1.5px 0 var(--chip-color));
+}
+.sf-chip {
+  display: inline-flex; align-items: center; padding: 3px 10px 4px 8px; background: var(--sf-black); color: var(--chip-color);
+  font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.sf-chip-filled { background: var(--chip-color); color: var(--sf-black); }
+
+@keyframes sf-scanline { from { top: -220px; } to { top: 100%; } }
+
+/* Raretés du jeu */
+.sf-rarity-common { color: #8b8b8b; } .sf-rarity-uncommon { color: #3da4e8; } .sf-rarity-rare { color: #235ba4; }
+.sf-rarity-epic { color: #5a3df5; } .sf-rarity-legendary { color: #f69226; } .sf-rarity-iconic { color: #e8c21f; }
+
+@keyframes sf-glitch-shake {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+}
+
+/* Respect de prefers-reduced-motion : coupe toutes les transitions/animations de la lib (glitch, scanbeam...). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

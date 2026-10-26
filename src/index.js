@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
+import './skyfox-ui/skyfox-ui.css';
 import './index.css';
 import App from './components/app';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';

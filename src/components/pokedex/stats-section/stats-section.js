@@ -8,6 +8,13 @@ const DivStat = styled.div`
 	border-radius: 10px;
 	padding: 7px;
 	color: white;
+
+	span {
+		font-family: var(--sf-font);
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
 `;
 
 let StatsSection = ({stats}) => {

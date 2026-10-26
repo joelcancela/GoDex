@@ -133,7 +133,7 @@ let PokedexItem = ({pokemon, caught, unavailable, obtainedFilter = VisibilityFil
 				     e.target.onerror = null;
 				     e.target.src = placeholder
 			     }}/>
-			<div className="pokemonDetails">
+			<div className="pokemonDetails sf-text-outline">
 			<span
 				className="pokemonNumber">
 				#{parseInt(pokemon.id).toString().padStart(3, '0')}

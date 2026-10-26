@@ -124,7 +124,13 @@ hr { border-color: var(--sf-border); opacity: 1; }
   padding-bottom: calc(.375rem + 4px); /* compense visuellement le coin coupé : le texte paraît sinon trop bas */
   transition: color .25s, background .25s;
 }
-.btn:hover { animation: sf-glitch-shake .25s ease 1; } /* léger tremblement au survol, désactivé par prefers-reduced-motion */
+/* Glitch au survol (comme .btn-cyber du site) : tremblement + fond qui clignote (couleur du bouton, vide, jaune) ; --sf-gb = fond au repos */
+.btn { --sf-gb: var(--sf-turquoise); }
+.btn-secondary, .btn-warning { --sf-gb: var(--sf-yellow); }
+.btn-dark, .btn-light { --sf-gb: rgba(255, 255, 255, .08); }
+.btn-danger { --sf-gb: var(--sf-danger); }
+.btn-success { --sf-gb: var(--sf-success); }
+.btn:hover { animation: sf-glitch-shake .25s ease 1, sf-glitch-bg .25s ease 1; }
 /* Le focus passe par outline (jaune) car box-shadow serait rogné par le clip-path */
 .btn:focus, .btn.focus, .btn:focus-visible { box-shadow: none; outline: 2px solid var(--sf-yellow); outline-offset: 2px; }
 /* Variantes : primary/info = turquoise, secondary/warning = jaune (les noms diffèrent entre BS4 et BS5, on couvre les deux).
@@ -144,7 +150,7 @@ hr { border-color: var(--sf-border); opacity: 1; }
 .btn-outline-primary, .btn-outline-info, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark {
   --sf-oc: var(--sf-turquoise); /* "outline color" : couleur du contour ET du texte, surchargée pour secondary/warning */
   position: relative; isolation: isolate; box-shadow: none; /* isolation: le ::before z-index:-1 reste au-dessus du fond du bouton */
-  background: var(--sf-oc); color: var(--sf-oc);
+  background: var(--sf-oc); color: var(--sf-oc); --sf-gb: var(--sf-oc);
 }
 .btn-outline-secondary, .btn-outline-warning { --sf-oc: var(--sf-yellow); }
 /* Contour = fond coloré + ::before noir inset de 1px (un box-shadow/border serait rogné par le clip-path).
@@ -385,11 +391,15 @@ a.sf-link-caps:hover { color: var(--sf-yellow); text-decoration: none; }
 .sf-rarity-epic { color: #5a3df5; } .sf-rarity-legendary { color: #f69226; } .sf-rarity-iconic { color: #e8c21f; }
 
 @keyframes sf-glitch-shake {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-2px, 1px); }
-  40% { transform: translate(2px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 1px); }
+  0%, 50% { transform: translate(5px, 5px); }
+  51%, 75% { transform: translate(-7px, 2px); }
+  76%, 99% { transform: translate(6px, -6px); }
+  to { transform: translate(0); }
+}
+@keyframes sf-glitch-bg {
+  0%, 50% { background-color: var(--sf-gb); }
+  51%, 75% { background-color: transparent; }
+  76%, 99% { background-color: var(--sf-yellow); }
 }
 
 /* Respect de prefers-reduced-motion : coupe toutes les transitions/animations de la lib (glitch, scanbeam...). */

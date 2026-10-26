@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.3767187d.css",
+    "main.css": "./static/css/main.a0f0930a.css",
     "main.js": "./static/js/main.5d3cf941.js",
     "static/css/86.b6a1e66c.chunk.css": "./static/css/86.b6a1e66c.chunk.css",
     "static/js/86.cf40225a.chunk.js": "./static/js/86.cf40225a.chunk.js",
@@ -11,13 +11,13 @@
     "static/media/blender-pro-bold.woff2": "./static/media/blender-pro-bold.c20e9c50151704fe0c24.woff2",
     "static/media/blender-pro-medium.woff2": "./static/media/blender-pro-medium.93149022b353f9b0ba30.woff2",
     "index.html": "./index.html",
-    "main.3767187d.css.map": "./static/css/main.3767187d.css.map",
+    "main.a0f0930a.css.map": "./static/css/main.a0f0930a.css.map",
     "main.5d3cf941.js.map": "./static/js/main.5d3cf941.js.map",
     "86.b6a1e66c.chunk.css.map": "./static/css/86.b6a1e66c.chunk.css.map",
     "86.cf40225a.chunk.js.map": "./static/js/86.cf40225a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3767187d.css",
+    "static/css/main.a0f0930a.css",
     "static/js/main.5d3cf941.js"
   ]
 }

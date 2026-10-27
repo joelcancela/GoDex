@@ -21,6 +21,7 @@ const DivStat = styled.div`
 const Label = styled.label`
 	margin-right: 5px;
 	margin-bottom: .5rem;
+	font-size: initial;
 `;
 
 const fetchConfig = async () => {

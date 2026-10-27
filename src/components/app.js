@@ -78,8 +78,8 @@ const App = () => {
 				</Provider>
 			</MainContainer>
 			<CustomNavbar fixed="bottom" bg="dark">
-				<span className="sf-link-caps">GoDex - 2019 - {currentYear}</span>
-				<ARight className="sf-link-caps" href="https://github.com/joelcancela/GoDex">
+				<span className="sf-link-caps">© 2019-{currentYear} - GoDex</span>
+				<ARight className="sf-link-caps" href="https://github.com/joelcancela/GoDex" target="_blank">
 					<i className="devicon-github-plain"/> GitHub</ARight>
 			</CustomNavbar>
 		</div>

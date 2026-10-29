@@ -4536,7 +4536,8 @@
     {
       "id": 701,
       "name": "hawlucha",
-      "type": "fighting"
+      "type": "fighting",
+      "special": "Mexico"
     },
     {
       "id": 702,
@@ -4851,7 +4852,8 @@
     {
       "id": 764,
       "name": "comfey",
-      "type": "fairy"
+      "type": "fairy",
+      "special": "Hawaï"
     },
     {
       "id": 765,
@@ -5401,7 +5403,8 @@
     {
       "id": 874,
       "name": "stonjourner",
-      "type": "rock"
+      "type": "rock",
+      "special": "UK"
     },
     {
       "id": 875,
@@ -6026,12 +6029,14 @@
     {
       "id": 999,
       "name": "gimmighoul",
-      "type": "ghost"
+      "type": "ghost",
+      "special": "Game"
     },
     {
       "id": 1000,
       "name": "gholdengo",
-      "type": "steel"
+      "type": "steel",
+      "special": "Game"
     },
     {
       "id": 1001,

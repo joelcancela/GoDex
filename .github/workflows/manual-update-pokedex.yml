@@ -16,6 +16,7 @@ jobs:
           jq "(.unavailable -= [${{ github.event.inputs.pokemonNumber }}])" ./public/pokedex/caughtUpdated.json > ./public/pokedex/unavailableUpdated.json
           rm ./public/pokedex/caughtUpdated.json
           mv ./public/pokedex/unavailableUpdated.json ./public/pokedex/pokemons.json
+          cp ./public/pokedex/pokemons.json ./docs/pokedex/pokemons.json
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v6
